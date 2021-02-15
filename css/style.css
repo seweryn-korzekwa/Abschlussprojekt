@@ -1,3 +1,56 @@
+/* import full Roboto Font from google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
-    margin: 0;
+    /* fixme: für die abstände soll in der Zukunft eine bessere lösung gefunden werden*/
+    margin: 0 4rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* container Speisekarte */
+.menu {
+    flex: 1;
+    background-color: bisque;
+}
+
+/* Bild im header-bereich */
+.menu_image {
+    height: 15rem;
+    width: 100%;
+    /* TODO: background-color soll durch Bild ersetzt werden*/
+    background-color: bisque;
+}
+
+/* container für den Restaurant Titel und beschreibung */
+.menu_description {
+    margin: 1rem 0;
+}
+
+/* ---------------------------------------------------------------------------------- */
+/* Mahlzeit container */
+.meal_container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gray;
+    padding: 1rem;
+    background-color: #fffdf4;
+}
+
+/* Mahlzeit container - zustand: Maus drüber schwebend */
+.meal_container:hover {
+    background-color: lightblue;
+}
+
+.meal_titel {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.meal_description {
+    font-size: 0.8rem;
+}
+
+.meal_price {
+    margin-top: 2rem;
+    color: orange;
 }
