@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
-    /* fixme: für die abstände soll in der Zukunft eine bessere lösung gefunden werden*/
+    /* fixme: für die abstände soll in der Zukunft eine bessere lösung gefunden werden */
     margin: 0 4rem;
     font-family: 'Roboto', sans-serif;
 }
@@ -32,6 +32,7 @@ body {
     display: flex;
     flex-direction: column;
     border: 1px solid gray;
+    margin-bottom: 1rem;
     padding: 1rem;
     background-color: #fffdf4;
 }
@@ -41,6 +42,7 @@ body {
     background-color: lightblue;
 }
 
+/* Mahlzeit container -> innere Elemente */
 .meal_titel {
     font-weight: 700;
     font-size: 1.2rem;

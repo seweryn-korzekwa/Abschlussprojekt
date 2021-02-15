@@ -3,6 +3,7 @@
 
 <!-- Website head -------------------------------------------------------------------------------------------------- -->
 <head>
+    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
 </head>
 
 <!-- Website body -------------------------------------------------------------------------------------------------- -->
-<body>
+<body onload="meal_load()">
 <!-- container der die ganze seite zusammen hält -->
 <div class="page_container">
     <!-- container in der die dynamisch generierte Speisekarte sich befindet -->
@@ -22,16 +23,8 @@
         <h1> Rodalben Pizza </h1>
         <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
     </div>
-    <!-- Prototyp von gericht der in der zukunft dynamisch generiert werden soll -->
-    <!-- Mahlzeit container -->
-    <div class="meal_container">
-        <!-- Name der Mahlzeit -->
-        <span class="meal_titel">Pizza Diablo</span>
-        <!-- Beschreibung der Mahlzeit -->
-        <span class="meal_description">Pizza mit Salami, Pilze und sehr scharf</span>
-        <!-- Prei der Mahlzeit -->
-        <span class="meal_price">11,50 €</span>
-    </div>
+    <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
+    <div id="main_container"></div>
 </div>
 
 </body>
