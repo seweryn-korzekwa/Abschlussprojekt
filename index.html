@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<!-- Website head -------------------------------------------------------------------------------------------------- -->
 <head>
-    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Abschlussprojekt</title>
 </head>
 
-<!-- Website body -------------------------------------------------------------------------------------------------- -->
-<body onload="meal_load()">
-<!-- container der die ganze seite zusammen hält -->
-<div class="page_container">
-    <!-- container in der die dynamisch generierte Speisekarte sich befindet -->
-    <div class="menu">
-        <!-- container für das header Bild -->
-        <div class="menu_image"></div>
-    </div>
-    <div class="menu_description">
-        <h1> Rodalben Pizza </h1>
-        <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
-    </div>
-    <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
-    <div id="main_container"></div>
+<!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
+<body onload="mealLoad()">
+
+<!-- container für den header Bild, img eingebunden in style.css-->
+<div class="menu_image">
+    <div class="logo"></div>
 </div>
+
+<!-- container für den Firmennamen und beschreibung  -->
+<div class="menu_description">
+    <h1> Restaurant Pizza & Salat </h1>
+    <span >Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
+</div>
+
+<!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
+<div class="meal_list">
+    <a href="#">Angebote</a>
+    <a href="#">Pizza</a>
+    <a href="#">Salate</a>
+    <a href="#">Vorspeisen</a>
+    <a href="#">Getränke</a>
+    <a href="#">Salate</a>
+    <a href="#">Vorspeisen</a>
+    <a href="#">Getränke</a>
+</div>
+
+<!-- container für die mit JavaScript dynamisch generierte Pizzas -->
+<div id="mainContainer" class="main_container"></div>
+
+<!-- Einbindung einer externe JavaScript Datei -->
+<script src="js/script.js"></script>
 
 </body>
 </html>

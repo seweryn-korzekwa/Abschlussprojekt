@@ -3,7 +3,7 @@
 
 const data = {
     pizza: {
-        img: 'https://seweryntube.pl/nagi_seweryn.jpg',
+        img: '',
         categoryName: 'Pizza',
         mealPosition: [
             {
@@ -19,7 +19,7 @@ const data = {
         ]
     },
     salad: {
-        img: 'https://seweryntube.pl/nagi_seweryn.jpg',
+        img: '',
         categoryName: 'Salate',
         mealPosition: [
             {
@@ -36,12 +36,12 @@ const data = {
     }
 }
 
-function meal_load() {
+function mealLoad() {
     for (const dataKey in data) {
-        let mainContainer = document.getElementById('main_container');
-        mainContainer.innerHTML += `<h1>${data[dataKey].categoryName}</h1>`
+        let mainCont = document.getElementById('mainContainer');
+        mainCont.innerHTML += `<h1>${data[dataKey].categoryName}</h1>`
         for (let i = 0; i < data[dataKey].mealPosition.length; i++) {
-            mainContainer.innerHTML += `
+            mainCont.innerHTML += `
             <div class="meal_container">
             <span class="meal_titel"> ${data[dataKey].mealPosition[i].meal_name} </span>
             <span class="meal_description"> ${data[dataKey].mealPosition[i].meal_description} </span>
