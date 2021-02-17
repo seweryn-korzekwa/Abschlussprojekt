@@ -77,11 +77,6 @@ font-weight: 500;
     font-size: 0.9rem;
 }
 
-/* container für den mit JS generierte Seiteninhalt */
-.main_container {
-    margin: 1rem;
-}
-
 /* container für die Links */
 .meal_list {
     background-color: #f8f5f2;
@@ -141,6 +136,34 @@ font-weight: 500;
 /* --- JS GENERIC HTML ---------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------ */
 
+/* container für den mit JS generierte Seiteninhalt */
+.main_container {
+    margin: 1rem;
+}
+
+/* Container mit Bild und Überschrift */
+.heading_container {
+    margin: 1rem 0;
+}
+
+/* Überschrift Bild */
+.heading_img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Überschrift Text */
+.heading_txt {
+    font-weight: 500;
+    color: var(--darkColor);
+    background-color: #f8f5f2;
+    padding: 1rem;
+    margin: 0;
+}
+
 /* Mahlzeit container */
 .meal_container {
     display: flex;
@@ -151,7 +174,7 @@ font-weight: 500;
     background-color: white;
 }
 
-/* Mahlzeit container - zustand: Maus drüber schwebend */
+/* Mahlzeit container - zustand:hover */
 .meal_container:hover {
     background-color: aliceblue;
 }
@@ -172,4 +195,14 @@ font-weight: 500;
 .meal_price {
     color: orange;
     font-weight: 600;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- SHOPPING CART ---------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.shopping_cart_container {
+    height: 100vh;
+    width: 300px;
+    background-color: lightblue;
 }

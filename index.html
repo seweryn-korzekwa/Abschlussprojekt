@@ -9,7 +9,7 @@
 </head>
 
 <!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
-<body onload="mealLoad()">
+<body onload="testLoad()">
 
 <!-- container für den header Bild, img eingebunden in style.css-->
 <div class="menu_image">
@@ -19,11 +19,11 @@
 <!-- container für den Firmennamen und beschreibung  -->
 <div class="menu_description">
     <h1> Restaurant Pizza & Salat </h1>
-    <span >Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
+    <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
 </div>
 
 <!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
-<div class="meal_list">
+<nav class="meal_list">
     <a href="#">Angebote</a>
     <a href="#">Pizza</a>
     <a href="#">Salate</a>
@@ -32,12 +32,16 @@
     <a href="#">Salate</a>
     <a href="#">Vorspeisen</a>
     <a href="#">Getränke</a>
-</div>
+</nav>
 
 <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
-<div id="mainContainer" class="main_container"></div>
+<section id="mainContainer" class="main_container"></section>
 
-<!-- Einbindung einer externe JavaScript Datei -->
+<!-- container für den Warenkorb -->
+<section class="shopping_cart_container">Warenkorb</section>
+
+<!-- Einbindung externe JavaScript Dateien -->
+<script src="js/generate.js"></script>
 <script src="js/script.js"></script>
 
 </body>

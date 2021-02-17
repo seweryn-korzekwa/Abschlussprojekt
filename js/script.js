@@ -1,56 +1,53 @@
-/* Attribute */
-let mainCont = document.getElementById('mainContainer');
-
 /* JSON Objekt */
 const data = {
     pizza: {
-        img: '',
-        categoryName: 'Pizza',
-        mealPosition: [
+        img: 'img/pizza-bg.jpg',
+        heading: 'Pizza',
+        meal: [
             {
-                mealName: 'Pizza Diablo',
-                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
-                mealPrice: 11.50
+                name: 'Pizza Diablo',
+                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                price: 11.50
             },
             {
-                mealName: 'Pizza Diablo',
-                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
-                mealPrice: 11.50
+                name: 'Pizza Diablo',
+                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                price: 11.50
             }
         ]
     },
     salad: {
-        img: '',
-        categoryName: 'Salate',
-        mealPosition: [
+        img: 'img/pizza-bg.jpg',
+        heading: 'Salate',
+        meal: [
             {
-                mealName: 'Pizza Diablo',
-                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
-                mealPrice: 11.50
+                name: 'Pizza Diablo',
+                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                price: 11.50
             },
             {
-                mealName: 'Pizza Diablo',
-                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
-                mealPrice: 11.50
+                name: 'Pizza Diablo',
+                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                price: 11.50
             }
         ]
     }
 }
 
-/* Funktionen */
-function mealLoad() {
+function testLoad() {
     for (const dataKey in data) {
 
-        mainCont.innerHTML += `<h1>${data[dataKey].categoryName}</h1>`
+        let img = data[dataKey].img;
+        let heading = data[dataKey].heading;
+        testMealHeading(img, heading)
 
-        for (let i = 0; i < data[dataKey].mealPosition.length; i++) {
-            mainCont.innerHTML += `
-            <div class="meal_container">
-            <span class="meal_titel"> ${data[dataKey].mealPosition[i].mealName} </span>
-            <span class="meal_description"> ${data[dataKey].mealPosition[i].mealDescription} </span>
-            <span class="meal_price"> ${data[dataKey].mealPosition[i].mealPrice} &euro;</span>
-            </div>
-        `
+        for (let i = 0; i < data[dataKey].meal.length; i++) {
+
+            let mealName = data[dataKey].meal[i].name;
+            let mealDescription = data[dataKey].meal[i].description;
+            let mealPrice = data[dataKey].meal[i].price;
+            testMeals(mealName, mealDescription, mealPrice)
         }
     }
 }
+
