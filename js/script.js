@@ -1,20 +1,21 @@
-/* fixme: bezeichner anpassen */
-/* TODO: code dokumentieren */
+/* Attribute */
+let mainCont = document.getElementById('mainContainer');
 
+/* JSON Objekt */
 const data = {
     pizza: {
         img: '',
         categoryName: 'Pizza',
         mealPosition: [
             {
-                meal_name: 'Pizza Diablo',
-                meal_description: 'Pizza mit Salami, Pilze und sehr scharf',
-                meal_price: 11.50
+                mealName: 'Pizza Diablo',
+                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
+                mealPrice: 11.50
             },
             {
-                meal_name: 'Pizza Margarita',
-                meal_description: 'Pizza mit Tomaten, Gurke und Mozzarella',
-                meal_price: 9.00
+                mealName: 'Pizza Diablo',
+                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
+                mealPrice: 11.50
             }
         ]
     },
@@ -23,29 +24,31 @@ const data = {
         categoryName: 'Salate',
         mealPosition: [
             {
-                meal_name: 'Pizza Diablo',
-                meal_description: 'Pizza mit Salami, Pilze und sehr scharf',
-                meal_price: 11.50
+                mealName: 'Pizza Diablo',
+                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
+                mealPrice: 11.50
             },
             {
-                meal_name: 'Pizza Margarita',
-                meal_description: 'Pizza mit Tomaten, Gurke und Mozzarella',
-                meal_price: 9.00
+                mealName: 'Pizza Diablo',
+                mealDescription: 'Pizza mit Salami, Pilze und sehr scharf',
+                mealPrice: 11.50
             }
         ]
     }
 }
 
+/* Funktionen */
 function mealLoad() {
     for (const dataKey in data) {
-        let mainCont = document.getElementById('mainContainer');
+
         mainCont.innerHTML += `<h1>${data[dataKey].categoryName}</h1>`
+
         for (let i = 0; i < data[dataKey].mealPosition.length; i++) {
             mainCont.innerHTML += `
             <div class="meal_container">
-            <span class="meal_titel"> ${data[dataKey].mealPosition[i].meal_name} </span>
-            <span class="meal_description"> ${data[dataKey].mealPosition[i].meal_description} </span>
-            <span class="meal_price"> ${data[dataKey].mealPosition[i].meal_price} &euro;</span>
+            <span class="meal_titel"> ${data[dataKey].mealPosition[i].mealName} </span>
+            <span class="meal_description"> ${data[dataKey].mealPosition[i].mealDescription} </span>
+            <span class="meal_price"> ${data[dataKey].mealPosition[i].mealPrice} &euro;</span>
             </div>
         `
         }
