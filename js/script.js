@@ -1,6 +1,11 @@
-/* JSON Objekt */
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- JSON --------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
 const data = {
     pizza: {
+        id: "pizza",
         img: 'img/pizza-bg.jpg',
         heading: 'Pizza',
         meal: [
@@ -17,6 +22,7 @@ const data = {
         ]
     },
     salad: {
+        id: "salad",
         img: 'img/pizza-bg.jpg',
         heading: 'Salate',
         meal: [
@@ -34,19 +40,16 @@ const data = {
     }
 }
 
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- FUNKTIONEN --------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
 function testLoad() {
     for (const dataKey in data) {
-
-        let img = data[dataKey].img;
-        let heading = data[dataKey].heading;
-        testMealHeading(img, heading)
+        addMealHeading(data[dataKey].id, data[dataKey].img, data[dataKey].heading)
 
         for (let i = 0; i < data[dataKey].meal.length; i++) {
-
-            let mealName = data[dataKey].meal[i].name;
-            let mealDescription = data[dataKey].meal[i].description;
-            let mealPrice = data[dataKey].meal[i].price;
-            testMeals(mealName, mealDescription, mealPrice)
+            addMealField(data[dataKey].meal[i].name, data[dataKey].meal[i].description, data[dataKey].meal[i].price)
         }
     }
 }

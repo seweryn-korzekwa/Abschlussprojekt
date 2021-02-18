@@ -11,34 +11,41 @@
 <!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
 <body onload="testLoad()">
 
-<!-- container für den header Bild, img eingebunden in style.css-->
-<div class="menu_image">
-    <div class="logo"></div>
-</div>
+<!-- container für das ganze Inhalt der Seite -->
+<section class="page_container">
 
-<!-- container für den Firmennamen und beschreibung  -->
-<div class="menu_description">
-    <h1> Restaurant Pizza & Salat </h1>
-    <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
-</div>
+    <!-- container für den header Bild, img eingebunden in style.css-->
+    <header class="menu_image">
+        <div class="logo"></div>
+    </header>
 
-<!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
-<nav class="meal_list">
-    <a href="#">Angebote</a>
-    <a href="#">Pizza</a>
-    <a href="#">Salate</a>
-    <a href="#">Vorspeisen</a>
-    <a href="#">Getränke</a>
-    <a href="#">Salate</a>
-    <a href="#">Vorspeisen</a>
-    <a href="#">Getränke</a>
-</nav>
+    <!-- container für den Firmennamen und beschreibung  -->
+    <div class="menu_description">
+        <h1> Restaurant Pizza & Salat </h1>
+        <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
+    </div>
 
-<!-- container für die mit JavaScript dynamisch generierte Pizzas -->
-<section id="mainContainer" class="main_container"></section>
+    <!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
+    <nav class="meal_list">
+        <a href="#">Angebote</a>
+        <a href="#pizza">Pizza</a>
+        <a href="#">Salate</a>
+        <a href="#">Vorspeisen</a>
+        <a href="#">Getränke</a>
+        <a href="#">Salate</a>
+        <a href="#">Vorspeisen</a>
+        <a href="#">Getränke</a>
+    </nav>
+
+    <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
+    <section id="mainContainer" class="main_container"></section>
+
+    <footer class="footer"></footer>
+
+</section> <!-- ende page_container -->
 
 <!-- container für den Warenkorb -->
-<section class="shopping_cart_container">Warenkorb</section>
+<section class="shopping_cart_container"></section>
 
 <!-- Einbindung externe JavaScript Dateien -->
 <script src="js/generate.js"></script>
