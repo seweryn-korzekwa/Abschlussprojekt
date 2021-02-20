@@ -27,6 +27,7 @@ function addMealField(mealName, mealDescription, mealPrice) {
         <h3 class="meal_titel">${mealName}</h3>
         <span class="meal_description">${mealDescription}</span>
         <span class="meal_price">${mealPrice} &euro;</span>
+        <span class="meal_add">+</span>
         </div>
     `
 }

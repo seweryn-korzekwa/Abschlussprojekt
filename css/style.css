@@ -167,6 +167,7 @@ font-weight: 500;
 
 /* Mahlzeit container */
 .meal_container {
+    position: relative;
     display: flex;
     flex-direction: column;
     border: 1px solid lightgray;
@@ -196,6 +197,26 @@ font-weight: 500;
 .meal_price {
     color: orange;
     font-weight: 600;
+}
+
+.meal_add {
+    position: absolute; /* Positionierung */
+    top: 0;
+    right: 0;
+
+    display: flex; /* Ausrichtung */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-bottom: 1px solid lightgray; /* Aussehen */
+    border-left: 1px solid lightgray;
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1574f5;
+    cursor: pointer;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */

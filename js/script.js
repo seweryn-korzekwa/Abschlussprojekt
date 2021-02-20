@@ -8,15 +8,15 @@ const data = {
         id: "pizza",
         img: 'img/pizza-bg.jpg',
         heading: 'Pizza',
-        meal: [
+        meals: [
             {
                 name: 'Pizza Diablo',
-                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
                 price: 11.50
             },
             {
                 name: 'Pizza Diablo',
-                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
                 price: 11.50
             }
         ]
@@ -25,15 +25,15 @@ const data = {
         id: "salad",
         img: 'img/pizza-bg.jpg',
         heading: 'Salate',
-        meal: [
+        meals: [
             {
                 name: 'Pizza Diablo',
-                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
                 price: 11.50
             },
             {
                 name: 'Pizza Diablo',
-                description: 'Pizza mit Salami, Pilze und sehr scharf',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
                 price: 11.50
             }
         ]
@@ -46,10 +46,12 @@ const data = {
 
 function testLoad() {
     for (const dataKey in data) {
-        addMealHeading(data[dataKey].id, data[dataKey].img, data[dataKey].heading)
+        const mahlzeit = data[dataKey];
+        addMealHeading(mahlzeit.id, mahlzeit.img, mahlzeit.heading);
 
-        for (let i = 0; i < data[dataKey].meal.length; i++) {
-            addMealField(data[dataKey].meal[i].name, data[dataKey].meal[i].description, data[dataKey].meal[i].price)
+        for (let i = 0; i < mahlzeit.meals.length; i++) {
+            const meal = mahlzeit.meals[i];
+            addMealField(meal.name, meal.description, meal.price);
         }
     }
 }
