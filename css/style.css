@@ -13,6 +13,7 @@
     --grayColor: gray;
     --primaryColor: orange;
     --darkColor: #0a3847;
+    --blue: #1574f5;
 
     /* sizes */
     --logoSize: 150px;
@@ -113,7 +114,7 @@ font-weight: 500;
 }
 
 /* --- Mobile ansicht für den Kopf Bereich -------------------------------------------------------------------------- */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
     .menu_image {
         height: 10rem;
     }
@@ -215,7 +216,7 @@ font-weight: 500;
     width: 40px;
     font-size: 1.5rem;
     font-weight: 400;
-    color: #1574f5;
+    color: var(--blue);
     cursor: pointer;
 }
 
@@ -224,15 +225,53 @@ font-weight: 500;
 /* ------------------------------------------------------------------------------------------------------------------ */
 
 .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #0a3847;
     margin-top: 100px;
-    height: 200px;
-    width: 100%;
+    padding: 32px 16px;
+}
+
+.footer a {
+    display: block;
+    color: white;
+    text-decoration: none;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
-/* --- SHOPPING CART ------------------------------------------------------------------------------------------------ */
+/* --- PAGE LAYOUT -------------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------ */
 
+.page_container {
+    margin-right: 400px;
+}
+
 .shopping_cart_container {
+    height: 100%; /* Größe */
+    width: 400px;
+
+    position: fixed; /* Positionierung */
+    top: 0;
+    right: 0;
+
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+}
+
+@media screen and (max-width: 1200px) {
+    .page_container {
+        margin-right: unset;
+    }
+
+    .shopping_cart_container {
+        height: 50px; /* Größe */
+        width: unset;
+
+        top: unset; /* Positionierung */
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: var(--blue);
+    }
 }
