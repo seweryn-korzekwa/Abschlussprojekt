@@ -1,53 +1,58 @@
-/* fixme: bezeichner anpassen */
-/* TODO: code dokumentieren */
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- JSON --------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
 
 const data = {
     pizza: {
-        img: 'https://seweryntube.pl/nagi_seweryn.jpg',
-        categoryName: 'Pizza',
-        mealPosition: [
+        id: "pizza",
+        img: 'img/pizza-bg.jpg',
+        heading: 'Pizza',
+        meals: [
             {
-                meal_name: 'Pizza Diablo',
-                meal_description: 'Pizza mit Salami, Pilze und sehr scharf',
-                meal_price: 11.50
+                name: 'Pizza Diablo',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+                price: 11.50
             },
             {
-                meal_name: 'Pizza Margarita',
-                meal_description: 'Pizza mit Tomaten, Gurke und Mozzarella',
-                meal_price: 9.00
+                name: 'Pizza Diablo',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+                price: 11.50
             }
         ]
     },
     salad: {
-        img: 'https://seweryntube.pl/nagi_seweryn.jpg',
-        categoryName: 'Salate',
-        mealPosition: [
+        id: "salad",
+        img: 'img/pizza-bg.jpg',
+        heading: 'Salate',
+        meals: [
             {
-                meal_name: 'Pizza Diablo',
-                meal_description: 'Pizza mit Salami, Pilze und sehr scharf',
-                meal_price: 11.50
+                name: 'Pizza Diablo',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+                price: 11.50
             },
             {
-                meal_name: 'Pizza Margarita',
-                meal_description: 'Pizza mit Tomaten, Gurke und Mozzarella',
-                meal_price: 9.00
+                name: 'Pizza Diablo',
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam',
+                price: 11.50
             }
         ]
     }
 }
 
-function meal_load() {
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- FUNKTIONEN --------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+function testLoad() {
     for (const dataKey in data) {
-        let mainContainer = document.getElementById('main_container');
-        mainContainer.innerHTML += `<h1>${data[dataKey].categoryName}</h1>`
-        for (let i = 0; i < data[dataKey].mealPosition.length; i++) {
-            mainContainer.innerHTML += `
-            <div class="meal_container">
-            <span class="meal_titel"> ${data[dataKey].mealPosition[i].meal_name} </span>
-            <span class="meal_description"> ${data[dataKey].mealPosition[i].meal_description} </span>
-            <span class="meal_price"> ${data[dataKey].mealPosition[i].meal_price} &euro;</span>
-            </div>
-        `
+        const mahlzeit = data[dataKey];
+        addMealHeading(mahlzeit.id, mahlzeit.img, mahlzeit.heading);
+
+        for (let i = 0; i < mahlzeit.meals.length; i++) {
+            const meal = mahlzeit.meals[i];
+            addMealField(meal.name, meal.description, meal.price);
         }
     }
 }
+

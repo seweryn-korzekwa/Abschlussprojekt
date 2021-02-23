@@ -1,31 +1,60 @@
 <!DOCTYPE html>
 <html lang="de">
 
-<!-- Website head -------------------------------------------------------------------------------------------------- -->
 <head>
-    <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
     <title>Abschlussprojekt</title>
 </head>
 
-<!-- Website body -------------------------------------------------------------------------------------------------- -->
-<body onload="meal_load()">
-<!-- container der die ganze seite zusammen hält -->
-<div class="page_container">
-    <!-- container in der die dynamisch generierte Speisekarte sich befindet -->
-    <div class="menu">
-        <!-- container für das header Bild -->
-        <div class="menu_image"></div>
-    </div>
+<!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
+<body onload="testLoad()">
+
+<!-- container für das ganze Inhalt der Seite -->
+<section class="page_container">
+
+    <!-- container für den header Bild, img eingebunden in style.css-->
+    <header class="menu_image">
+        <div class="logo"></div>
+    </header>
+
+    <!-- container für den Firmennamen und beschreibung  -->
     <div class="menu_description">
-        <h1> Rodalben Pizza </h1>
+        <h1> Restaurant Pizza & Salat </h1>
         <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
     </div>
+
+    <!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
+    <nav class="meal_list">
+        <a href="#">Angebote</a>
+        <a href="#pizza">Pizza</a>
+        <a href="#">Salate</a>
+        <a href="#">Vorspeisen</a>
+        <a href="#">Getränke</a>
+        <a href="#">Salate</a>
+        <a href="#">Vorspeisen</a>
+        <a href="#">Getränke</a>
+    </nav>
+
     <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
-    <div id="main_container"></div>
-</div>
+    <section id="mainContainer" class="main_container"></section>
+
+    <footer class="footer">
+        <a href="#">AGB</a>
+        <a href="#">Datenschutzerklärung</a>
+        <a href="#">Impressum</a>
+        <a href="#">Verwendung von Cookies</a>
+    </footer>
+
+</section> <!-- ende page_container -->
+
+<!-- container für den Warenkorb -->
+<section class="shopping_cart_container"></section>
+
+<!-- Einbindung externe JavaScript Dateien -->
+<script src="js/generate.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>

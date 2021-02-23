@@ -1,58 +1,277 @@
-/* import full Roboto Font from google fonts */
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- IMPORT ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-body {
-    /* fixme: für die abstände soll in der Zukunft eine bessere lösung gefunden werden */
-    margin: 0 4rem;
-    font-family: 'Roboto', sans-serif;
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- ROOT --------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+:root {
+    /* colors */
+    --grayColor: gray;
+    --primaryColor: orange;
+    --darkColor: #0a3847;
+    --blue: #1574f5;
+
+    /* sizes */
+    --logoSize: 150px;
+    --logoMobileSize: 100px
 }
 
-/* container Speisekarte */
-.menu {
-    flex: 1;
-    background-color: bisque;
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- GLOBAL CLASSES ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth; /* safari wird nicht unterstützt */
 }
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- HEADER AREA CLASSES ------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------------------------ */
 
 /* Bild im header-bereich */
 .menu_image {
     height: 15rem;
     width: 100%;
-    /* TODO: background-color soll durch Bild ersetzt werden*/
-    background-color: bisque;
+    background-image: url("../img/pizza-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Für das Logo */
+}
+
+.logo {
+    background-image: url("../img/logo.jpg"); /* Bild */
+    background-size: cover;
+
+    height: var(--logoSize); /* Größe und Form */
+    width: var(--logoSize);
+    border: 8px solid white;
+    border-radius: 50%;
+    box-sizing: border-box;
+
+    position: absolute; /* Positionierung */
+    bottom: 0;
+    left: calc(50% - (var(--logoSize) / 2) );
+    transform: translate(0, calc( var(--logoSize) / 2 ) );
 }
 
 /* container für den Restaurant Titel und beschreibung */
 .menu_description {
+    margin: 3rem 1rem;
+}
+
+
+.menu_description h1 {
+font-weight: 500;
+    font-size: 1.5rem;
+    color: var(--darkColor);
+    margin: 1rem 0 .5rem 0;
+}
+
+.menu_description span {
+    color: var(--grayColor);
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+/* container für die Links */
+.meal_list {
+    background-color: #f8f5f2;
+    display: flex;
+    overflow-x: auto;
+}
+/* Scrollbar wird nicht sichtbar gemacht */
+.meal_list::-webkit-scrollbar {
+    display: none;
+}
+/* Aussehen von Navigations Links */
+.meal_list a {
+    text-decoration: none;
+    color: var(--grayColor);
+    font-weight: 300;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid transparent;
+}
+
+/* Erstes Element bekommt margin auto um die navbar mittig ausrichten */
+.meal_list a:first-child {
+    margin-left: auto;
+}
+
+/* Letztes Element bekommt margin auto um die navbar mittig ausrichten */
+.meal_list a:last-child {
+    margin-right: auto;
+}
+
+/* Zustand von Navigations Links wenn Mauszeiger drüber schwebt */
+.meal_list a:hover {
+    border-bottom: 2px solid var(--primaryColor);
+}
+
+/* --- Mobile ansicht für den Kopf Bereich -------------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+    .menu_image {
+        height: 10rem;
+    }
+
+    .menu_description {
+        margin-top: 5rem;
+        text-align: center;
+    }
+
+    .logo {
+        height: var(--logoMobileSize); /* Größe und Form */
+        width: var(--logoMobileSize);
+        border: 4px solid white;
+
+        left: calc(50% - (var(--logoMobileSize) / 2) ); /* Positionierung */
+        transform: translate(0, calc( var(--logoMobileSize) / 2 ) );
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- JS GENERIC HTML ---------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+/* container für den mit JS generierte Seiteninhalt */
+.main_container {
+    margin: 1rem;
+}
+
+/* Container mit Bild und Überschrift */
+.heading_container {
     margin: 1rem 0;
 }
 
-/* ---------------------------------------------------------------------------------- */
-/* Mahlzeit container */
-.meal_container {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid gray;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background-color: #fffdf4;
+/* Überschrift Bild */
+.heading_img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
 }
 
-/* Mahlzeit container - zustand: Maus drüber schwebend */
+/* Überschrift Text */
+.heading_txt {
+    font-weight: 500;
+    color: var(--darkColor);
+    background-color: #f8f5f2;
+    padding: 1rem;
+    margin: 0;
+}
+
+/* Mahlzeit container */
+.meal_container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+/* Mahlzeit container - zustand:hover */
 .meal_container:hover {
-    background-color: lightblue;
+    background-color: aliceblue;
 }
 
 /* Mahlzeit container -> innere Elemente */
 .meal_titel {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .meal_description {
     font-size: 0.8rem;
+    color: var(--grayColor);
+    margin-bottom: 1rem;
 }
 
 .meal_price {
-    margin-top: 2rem;
     color: orange;
+    font-weight: 600;
+}
+
+.meal_add {
+    position: absolute; /* Positionierung */
+    top: 0;
+    right: 0;
+
+    display: flex; /* Ausrichtung */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    border-bottom: 1px solid lightgray; /* Aussehen */
+    border-left: 1px solid lightgray;
+    height: 40px;
+    width: 40px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--blue);
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- FOOTER ------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0a3847;
+    margin-top: 100px;
+    padding: 32px 16px;
+}
+
+.footer a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+/* --- PAGE LAYOUT -------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.page_container {
+    margin-right: 400px;
+}
+
+.shopping_cart_container {
+    height: 100%; /* Größe */
+    width: 400px;
+
+    position: fixed; /* Positionierung */
+    top: 0;
+    right: 0;
+
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+}
+
+@media screen and (max-width: 1200px) {
+    .page_container {
+        margin-right: unset;
+    }
+
+    .shopping_cart_container {
+        height: 50px; /* Größe */
+        width: unset;
+
+        top: unset; /* Positionierung */
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: var(--blue);
+    }
 }
