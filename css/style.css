@@ -284,9 +284,25 @@ font-weight: 500;
     margin: 0 8px;
     border-bottom: 1px solid lightgray;
 }
-
+/* ---------------------------------------------------------------- */
 .shopping_cart_items_container {
+    margin: 0 8px;
+    padding: 8px;
+    border-bottom: 1px solid lightgray;
 }
+.shopping_cart_item{}
+.shopping_cart_item_name {}
+.shopping_cart_item_price {}
+.shopping_cart_item_description {
+    font-size: .9rem;
+    font-weight: 100;
+    color: var(--grayColor);
+}
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+/* ---------------------------------------------------------------- */
 
 .shopping_cart_value_container {
     margin: 0 8px;

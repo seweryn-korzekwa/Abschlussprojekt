@@ -9,7 +9,7 @@
 </head>
 
 <!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
-<body onload="loadMeals()">
+<body onload="loadMeals(); checkLocalStorage(); addProductToShoppingCart()">
 
 <!-- container für das ganze Inhalt der Seite -->
 <section class="page_container">
@@ -56,7 +56,7 @@
         <span>Warenkorb</span>
     </div>
     <!-- Inhalt von Warenkorb -->
-    <div id="shoppingCart" class="shopping_cart_items_container"></div>
+    <div id="shoppingCartProductContainer" class="shopping_cart_items_container"></div>
 
     <!-- Der Bestellwert und Gesamtsumme -->
     <div class="shopping_cart_value_container">
@@ -73,8 +73,9 @@
 </section>
 
 <!-- Einbindung externe JavaScript Dateien -->
-<script src="js/generate.js"></script>
-<script src="js/script.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script src="js/template.js"></script>
 
 </body>
 </html>
