@@ -9,7 +9,7 @@
 </head>
 
 <!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
-<body onload="testLoad()">
+<body onload="loadMealsToHTML(); checkLocalStorage()">
 
 <!-- container für das ganze Inhalt der Seite -->
 <section class="page_container">
@@ -41,20 +41,41 @@
     <section id="mainContainer" class="main_container"></section>
 
     <footer class="footer">
-        <a href="#">AGB</a>
-        <a href="#">Datenschutzerklärung</a>
-        <a href="#">Impressum</a>
-        <a href="#">Verwendung von Cookies</a>
+        <a href="">AGB</a>
+        <a href="">Datenschutzerklärung</a>
+        <a href="">Impressum</a>
+        <a href="">Verwendung von Cookies</a>
     </footer>
 
 </section> <!-- ende page_container -->
 
 <!-- container für den Warenkorb -->
-<section class="shopping_cart_container"></section>
+<section class="shopping_cart_container">
+    <!-- Der Titel -->
+    <div class="shopping_cart_header_container">
+        <span>Warenkorb</span>
+    </div>
+    <!-- Inhalt von Warenkorb -->
+    <div id="shoppingCartProductContainer" class="shopping_cart_items_container"></div>
+
+    <!-- Der Bestellwert und Gesamtsumme -->
+    <div class="shopping_cart_value_container">
+        <div class="space-between"><span>Zwischensumme</span> <span id="subtotal"></span></div>
+        <div class="space-between"><span>Lieferkosten</span> <span id="delivery"></span></div>
+        <div class="space-between"><span>Gesamtkosten</span> <span id="totalPrice"></span></div>
+    </div>
+
+    <!-- Button zum bestellen -->
+    <div class="shopping_cart_button_container">
+        <button class="shopping_cart_button">Bestellen</button>
+    </div>
+
+</section>
 
 <!-- Einbindung externe JavaScript Dateien -->
-<script src="js/generate.js"></script>
-<script src="js/script.js"></script>
+<script src="js/data.js"></script>
+<script src="js/template.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
