@@ -22,12 +22,10 @@ function loadMealsToHTML() {
 * Überprüft ob es daten aus dem localStorage zum laden gibt
 */
 function checkLocalStorage() {
-    if (localStorage.getItem('shoppingCart') !== "") {
-        shoppingCart = JSON.parse(localStorage.getItem('shoppingCart'))
+    if (JSON.parse(localStorage.getItem('shoppingCart')).meals.length > 0) {
         cache()
-        updatePrice()
-    } else {
-        console.log('localStorage ist leer')
+    }
+    else {
         shoppingCartIsEmpty()
     }
 }
@@ -38,11 +36,10 @@ function checkLocalStorage() {
  * @param index
  */
 function clickButton(key, index) {
-    pushProductToArray(key, index) /* Step 2 */
-    updateLocalStorage(); /* Step 3 */
-    shoppingCartClear() /* Step 4 */
-    cache(); /* step 5 */
-    updatePrice()
+    pushProductToShoppingCart(key, index) /* Step 2: Produkte werden zum Array in JSON gepusht in data.js */
+    updateLocalStorage(); /* Step 3: Produkte aus dem Array werden in localStorage gespeichert */
+    shoppingCartClear() /* Step 4: HTML inhalt wird aus dem Warenkorb gelöscht */
+    checkLocalStorage() /* Step 5: localStorage wird zum HTML inhalt gepusht */
 }
 
 /**
@@ -50,7 +47,7 @@ function clickButton(key, index) {
  * @param key
  * @param index
  */
-function pushProductToArray(key, index) {
+function pushProductToShoppingCart(key, index) {
     let product = data[key].meals[index];
     shoppingCart.meals.push(product)
 }
@@ -78,8 +75,7 @@ function deleteItem(index) {
     itemSplice(index)
     updateLocalStorage()
     shoppingCartClear()
-    cache();
-    updatePrice()
+    checkLocalStorage()
 }
 
 /**

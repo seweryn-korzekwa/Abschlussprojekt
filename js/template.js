@@ -43,7 +43,7 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
         <div class="meal_container">
             <h3 class="meal_titel">${mealName}</h3>
             <span class="meal_description">${mealDescription}</span>
-            <span class="meal_price">${mealPrice.toFixed(2)} &euro</span>
+            <span class="meal_price">${mealPrice.toFixed(2)} &euro;</span>
             <span class="meal_add" onclick="clickButton('${key}', ${index})">+</span>
         </div>
     `;
@@ -68,17 +68,11 @@ function pushToHTML(name, price, description, rm) {
             <div>
                 <button onclick="deleteItem(${rm})">x</button>
                 <span class="shopping_cart_item_name">${name}</span>
-                <span class="shopping_cart_item_price">${price.toFixed(2)} &euro</span>
+                <span class="shopping_cart_item_price">${price.toFixed(2)} &euro;</span>
             </div>
             <div>
                 <span class="shopping_cart_item_description">${description}</span>
             </div>
         </div>
     `;
-}
-
-function priceIsZero() {
-    subtotal.innerHTML = `${0 }&euro`
-    delivery.innerHTML = `0`
-    totalPrice.innerHTML = `0`
 }
