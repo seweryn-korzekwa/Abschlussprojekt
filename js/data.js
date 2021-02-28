@@ -1,6 +1,6 @@
 /**
  * In der Datei befinden sich JSON-Objekte.
- * Diese Objekte verden von der main.js Datei verwendet um in der template.js Datei dynamisch Code zu generieren
+ * Diese Objekte verden von der template.js Datei verwendet um in der main.js Datei dynamisch Code zu generieren
  */
 
 /**
@@ -16,12 +16,12 @@ const data = {
             {
                 name: 'Pizza Diablo',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 11.50
+                price: 7.50
             },
             {
-                name: 'Pizza Diablo',
+                name: 'Pizza Polska',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 11.50
+                price: 100.50
             }
         ]
     },
@@ -31,14 +31,14 @@ const data = {
         heading: 'Salate',
         meals: [
             {
-                name: 'Pizza Diablo',
+                name: 'Pizza Niemiecka',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 11.50
+                price: 9.50
             },
             {
-                name: 'Pizza Diablo',
+                name: 'Pizza Chinska',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 11.50
+                price: 10.50
             }
         ]
     }
@@ -49,5 +49,6 @@ const data = {
  * @type JSON
  */
 let shoppingCart = {
+    totalPrice: 0,
     meals: []
 };

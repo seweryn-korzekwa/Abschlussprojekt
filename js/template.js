@@ -1,53 +1,84 @@
 /**
- * In der Datei befinden sich die Wesentliche logik
+ * In der Datei befinden sich funktionen die einen HTML-Templates dynamisch Generieren
+ * Funktionen werden in der regel in der template.js Datei aufgerufen
  */
 
 /**
- * die funktion wird ausgeführt sobald die seite geladen ist, sie fügt mahlzeiten container zu der Seite zu
+ * HTML ID's um befehle abzukürzen
  */
-function loadMeals() {
-    for (let dataKey in data) {
-        let mahlzeit = data[dataKey];
-        addMealHeading(mahlzeit.id, mahlzeit.img, mahlzeit.heading);
+const mainCont = document.getElementById('mainContainer');
+const shoppingCartProductContainer = document.getElementById('shoppingCartProductContainer');
+const subtotal = document.getElementById('subtotal');
+const delivery = document.getElementById('delivery');
+const totalPrice = document.getElementById('totalPrice')
+const deliveryCosts = 7;
 
-        for (let i = 0; i < mahlzeit.meals.length; i++) {
-            let meal = mahlzeit.meals[i];
-            addMealField(meal.name, meal.description, meal.price, dataKey, i);
-        }
-    }
-    console.log('Mahlzeiten wurden geladen')
+/**
+ * die Funktion generiert einen überschrift mit Bild für die jeweiligen sektionen der Speisekarte
+ * @param id
+ * @param img
+ * @param heading
+ * @returns {string}
+ */
+function addMealHeading(id, img, heading) {
+    return mainCont.innerHTML += `
+        <div class="heading_container">
+            <img id="${id}" class="heading_img" src="${img}" alt="Image">
+            <h2 class="heading_txt">${heading}</h2>
+        </div>
+    `;
 }
 
 /**
- * Die Funktion fügt produkte zum Warenkorb
+ * die Funktion generiert einen container mit informationen aus der speisekarte
+ * @param mealName
+ * @param mealDescription
+ * @param mealPrice
  * @param key
  * @param index
+ * @returns {string}
  */
-function addToShoppingCart(key, index) {
-    let item = data[key].meals[index];
-    shoppingCart.meals.push(item)
-    updateLocalStorage();
-    console.log('plus button wurde gedrückt')
+function addMealField(mealName, mealDescription, mealPrice, key, index) {
+    return mainCont.innerHTML += `
+        <div class="meal_container">
+            <h3 class="meal_titel">${mealName}</h3>
+            <span class="meal_description">${mealDescription}</span>
+            <span class="meal_price">${mealPrice.toFixed(2)} &euro</span>
+            <span class="meal_add" onclick="clickButton('${key}', ${index})">+</span>
+        </div>
+    `;
 }
 
 /**
- * localStorag (key: ShoppingCart) wird gelöscht und neu geladen
+ * ie Funktion wird ausgeführt sobald localStorage leer ist beim Neuladen der seite
+ * @returns {string}
  */
-function updateLocalStorage() {
-    let items = JSON.stringify(shoppingCart);
-    localStorage.removeItem('shoppingCart');
-    localStorage.setItem('shoppingCart', items)
-    console.log('update wurde ausgeführt')
+function shoppingCartIsEmpty() {
+    return shoppingCartProductContainer.innerHTML += `
+        <span>Warenkorb ist Leer</span>
+    `;
 }
 
 /**
- * Überprüft ob localStorage leer oder gefühlt ist
+ * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
  */
-function checkLocalStorage() {
-    if (localStorage.getItem('shoppingCart') !== null) {
-        console.log('localStorage ist nicht leer')
-    } else {
-        console.log('localStorage ist leer')
-        shoppingCartIsEmpty()
-    }
+function pushToHTML(name, price, description, rm) {
+    return shoppingCartProductContainer.innerHTML += `
+        <div class="shopping_cart_item">
+            <div>
+                <button onclick="deleteItem(${rm})">x</button>
+                <span class="shopping_cart_item_name">${name}</span>
+                <span class="shopping_cart_item_price">${price.toFixed(2)} &euro</span>
+            </div>
+            <div>
+                <span class="shopping_cart_item_description">${description}</span>
+            </div>
+        </div>
+    `;
+}
+
+function priceIsZero() {
+    subtotal.innerHTML = `${0 }&euro`
+    delivery.innerHTML = `0`
+    totalPrice.innerHTML = `0`
 }

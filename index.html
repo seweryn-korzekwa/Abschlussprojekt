@@ -9,7 +9,7 @@
 </head>
 
 <!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
-<body onload="loadMeals(); checkLocalStorage(); addProductToShoppingCart()">
+<body onload="loadMealsToHTML(); checkLocalStorage()">
 
 <!-- container für das ganze Inhalt der Seite -->
 <section class="page_container">
@@ -60,9 +60,9 @@
 
     <!-- Der Bestellwert und Gesamtsumme -->
     <div class="shopping_cart_value_container">
-        <div> <span>Zwischensumme</span> <span>12,50€</span> </div>
-        <div> <span>Lieferkosten</span> <span>7€</span> </div>
-        <div> <span>Gesamt</span> <span>19,50€</span> </div>
+        <div class="space-between"><span>Zwischensumme</span> <span id="subtotal"></span></div>
+        <div class="space-between"><span>Lieferkosten</span> <span id="delivery"></span></div>
+        <div class="space-between"><span>Gesamtkosten</span> <span id="totalPrice"></span></div>
     </div>
 
     <!-- Button zum bestellen -->
@@ -74,8 +74,8 @@
 
 <!-- Einbindung externe JavaScript Dateien -->
 <script src="js/data.js"></script>
-<script src="js/main.js"></script>
 <script src="js/template.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
