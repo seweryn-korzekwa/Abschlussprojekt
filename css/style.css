@@ -18,11 +18,6 @@
     /* sizes */
     --logoSize: 150px;
     --logoMobileSize: 100px;
-
-    /* shopping cart div-sizing */
-    --header: 50px;
-    --value: 80px;
-    --button: 100px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -61,6 +56,7 @@ body {
 
     position: absolute; /* Positionierung */
     bottom: 0;
+    /* Berechnung um das Logo mittig von Bildschirm anzuzeigen  */
     left: calc(50% - (var(--logoSize) / 2) );
     transform: translate(0, calc( var(--logoSize) / 2 ) );
 }
@@ -283,7 +279,7 @@ font-weight: 500;
 
 /* --- HEADER ------------------------------------------------------------------------------------------------------- */
 .shopping_cart_header_container {
-    height: var(--header);
+    height: 10vh;
 
     display: flex;
     justify-content: center;
@@ -296,7 +292,7 @@ font-weight: 500;
 
 /* --- ITEMS -------------------------------------------------------------------------------------------------------- */
 .shopping_cart_items_container {
-    max-height: calc(100vh - (var(--header) + var(--value) + var(--value)));
+    max-height: 70vh;
     overflow-y: scroll;
 
     margin: 0 16px;
@@ -332,7 +328,7 @@ font-weight: 500;
 
 /* --- PRICE -------------------------------------------------------------------------------------------------------- */
 .shopping_cart_value_container {
-    height: var(--value);
+    height: 10vh;
 
     margin: 0 16px;
 
@@ -348,7 +344,7 @@ font-weight: 500;
 
 /* --- BUTTON ------------------------------------------------------------------------------------------------------- */
 .shopping_cart_button_container {
-    height: var(--button);
+    height: 10vh;
     box-sizing: border-box;
     padding: 16px;
 }

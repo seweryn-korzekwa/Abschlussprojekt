@@ -49,6 +49,5 @@ const data = {
  * @type JSON
  */
 let shoppingCart = {
-    /*totalPrice: 0, ich denke das ist unnötig*/
     meals: []
 };

@@ -54,25 +54,30 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
  * @returns {string}
  */
 function shoppingCartIsEmpty() {
-    return shoppingCartProductContainer.innerHTML += `
-        <span>Warenkorb ist Leer</span>
-    `;
+    shoppingCartProductContainer.innerHTML += `<span>Warenkorb ist Leer</span>`;
+    subtotal.innerHTML = `<span>0 &euro;</span>`;
+    delivery.innerHTML = `<span>0 &euro;</span>`;
+    totalPrice.innerHTML = `<span>0 &euro;</span>`;
 }
 
 /**
  * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
  */
-function pushToHTML(name, price, description, rm) {
-    return shoppingCartProductContainer.innerHTML += `
-        <div class="shopping_cart_item">
-            <div>
-                <button onclick="deleteItem(${rm})">x</button>
-                <span class="shopping_cart_item_name">${name}</span>
-                <span class="shopping_cart_item_price">${price.toFixed(2)} &euro;</span>
+
+function pushToHTML() {
+    const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
+    for (const dataKey in data) {
+        shoppingCartProductContainer.innerHTML += `
+            <div class="shopping_cart_item">
+                <div>
+                    <button onclick="deleteItem(${dataKey})">x</button>
+                    <span class="shopping_cart_item_name">${data[dataKey].name}</span>
+                    <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                </div>
+                <div>
+                    <span class="shopping_cart_item_description">${data[dataKey].description}</span>
+                </div>
             </div>
-            <div>
-                <span class="shopping_cart_item_description">${description}</span>
-            </div>
-        </div>
-    `;
+        `
+    }
 }
