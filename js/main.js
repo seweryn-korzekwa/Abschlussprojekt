@@ -34,7 +34,7 @@ function checkLocalStorage() {
 
 /**
  * Lösch daten aus dem Warenkorb Array
- * @param index {int}
+ * @param {int} index
  */
 function deleteItem(index) {
     itemSplice(index)
