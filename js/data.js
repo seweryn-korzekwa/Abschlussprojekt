@@ -23,6 +23,12 @@ const data = {
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
                 price: 100.50
             }
+        ],
+        additionals: [
+            {
+                name: 'test',
+                price: 2.00
+            }
         ]
     },
     salad: {
@@ -49,6 +55,5 @@ const data = {
  * @type JSON
  */
 let shoppingCart = {
-    totalPrice: 0,
     meals: []
 };

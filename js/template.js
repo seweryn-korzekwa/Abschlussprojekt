@@ -43,7 +43,7 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
         <div class="meal_container">
             <h3 class="meal_titel">${mealName}</h3>
             <span class="meal_description">${mealDescription}</span>
-            <span class="meal_price">${mealPrice.toFixed(2)} &euro</span>
+            <span class="meal_price">${mealPrice.toFixed(2)} &euro;</span>
             <span class="meal_add" onclick="clickButton('${key}', ${index})">+</span>
         </div>
     `;
@@ -54,31 +54,30 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
  * @returns {string}
  */
 function shoppingCartIsEmpty() {
-    return shoppingCartProductContainer.innerHTML += `
-        <span>Warenkorb ist Leer</span>
-    `;
+    shoppingCartProductContainer.innerHTML += `<span>Warenkorb ist Leer</span>`;
+    subtotal.innerHTML = `<span>0 &euro;</span>`;
+    delivery.innerHTML = `<span>0 &euro;</span>`;
+    totalPrice.innerHTML = `<span>0 &euro;</span>`;
 }
 
 /**
  * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
  */
-function pushToHTML(name, price, description, rm) {
-    return shoppingCartProductContainer.innerHTML += `
-        <div class="shopping_cart_item">
-            <div>
-                <button onclick="deleteItem(${rm})">x</button>
-                <span class="shopping_cart_item_name">${name}</span>
-                <span class="shopping_cart_item_price">${price.toFixed(2)} &euro</span>
-            </div>
-            <div>
-                <span class="shopping_cart_item_description">${description}</span>
-            </div>
-        </div>
-    `;
-}
 
-function priceIsZero() {
-    subtotal.innerHTML = `${0 }&euro`
-    delivery.innerHTML = `0`
-    totalPrice.innerHTML = `0`
+function pushToHTML() {
+    const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
+    for (const dataKey in data) {
+        shoppingCartProductContainer.innerHTML += `
+            <div class="shopping_cart_item">
+                <div>
+                    <button onclick="deleteItem(${dataKey})">x</button>
+                    <span class="shopping_cart_item_name">${data[dataKey].name}</span>
+                    <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                </div>
+                <div>
+                    <span class="shopping_cart_item_description">${data[dataKey].description}</span>
+                </div>
+            </div>
+        `
+    }
 }
