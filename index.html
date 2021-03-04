@@ -26,20 +26,12 @@
     </div>
 
     <!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
-    <nav class="meal_list">
-        <a href="func.html">Angebote</a>
-        <a href="#pizza">Pizza</a>
-        <a href="#">Salate</a>
-        <a href="#">Vorspeisen</a>
-        <a href="#">Getränke</a>
-        <a href="#">Salate</a>
-        <a href="#">Vorspeisen</a>
-        <a href="#">Getränke</a>
-    </nav>
+    <nav id="navigation" class="meal_list"></nav>
 
     <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
     <section id="mainContainer" class="main_container"></section>
 
+    <!-- fixme: footer soll verbessert werden -->
     <footer class="footer">
         <a href="">AGB</a>
         <a href="">Datenschutzerklärung</a>
@@ -56,7 +48,9 @@
         <span>Warenkorb</span>
     </div>
     <!-- Inhalt von Warenkorb -->
-    <div id="shoppingCartProductContainer" class="shopping_cart_items_container"></div>
+    <div class="shopping_cart_items_container">
+        <div id="shoppingCartProductContainer"></div>
+    </div>
 
     <!-- Der Bestellwert und Gesamtsumme -->
     <div class="shopping_cart_value_container">
@@ -67,7 +61,8 @@
 
     <!-- Button zum bestellen -->
     <div class="shopping_cart_button_container">
-        <button class="shopping_cart_button">Bestellen</button>
+        <div id="orderInfo"></div>
+        <button id="orderButton" class="shopping_cart_button" >Bestellen</button>
     </div>
 
 </section>

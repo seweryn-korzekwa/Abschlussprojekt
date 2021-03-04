@@ -7,11 +7,20 @@
  * HTML ID's um befehle abzukürzen
  */
 const mainCont = document.getElementById('mainContainer');
+const navbar = document.getElementById('navigation');
 const shoppingCartProductContainer = document.getElementById('shoppingCartProductContainer');
 const subtotal = document.getElementById('subtotal');
 const delivery = document.getElementById('delivery');
 const totalPrice = document.getElementById('totalPrice')
-const deliveryCosts = 7;
+
+/**
+ * @param {string} id
+ */
+function addLinksToNavbar(id, name) {
+     navbar.innerHTML += `
+        <a href="#${id}">${name}</a>
+    `
+}
 
 /**
  * die Funktion generiert einen überschrift mit Bild für die jeweiligen sektionen der Speisekarte
@@ -58,12 +67,15 @@ function shoppingCartIsEmpty() {
     subtotal.innerHTML = `<span>0 &euro;</span>`;
     delivery.innerHTML = `<span>0 &euro;</span>`;
     totalPrice.innerHTML = `<span>0 &euro;</span>`;
+    btn.innerHTML = `<span>Fülle dein Warenkorb</span>`;
+    btn.setAttribute('disabled', true)
 }
 
 /**
  * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
  */
 
+/* todo: ist mir zu viel js in der datei */
 function pushToHTML() {
     const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
     for (const dataKey in data) {

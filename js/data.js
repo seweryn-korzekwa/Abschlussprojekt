@@ -4,12 +4,13 @@
  */
 
 /**
+ * todo: Speisekarte verbessern
  * JSON Objekt mit den Mahlzeiten
  * @type JSON
  */
 const data = {
     pizza: {
-        id: "pizza",
+        id: 'pizza',
         img: 'img/pizza-bg.jpg',
         heading: 'Pizza',
         meals: [
@@ -24,15 +25,9 @@ const data = {
                 price: 100.50
             }
         ],
-        additionals: [
-            {
-                name: 'test',
-                price: 2.00
-            }
-        ]
     },
     salad: {
-        id: "salad",
+        id: 'salad',
         img: 'img/pizza-bg.jpg',
         heading: 'Salate',
         meals: [
@@ -45,6 +40,28 @@ const data = {
                 name: 'Pizza Chinska',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
                 price: 10.50
+            }
+        ]
+    },
+    drinks: {
+        id: 'driks',
+        img: 'img/pizza-bg.jpg',
+        heading: 'Getränke',
+        meals: [
+            {
+                name: 'Coca Cola',
+                description: 'Eine Kalte 0,3L Dose Coca Cola',
+                price: 2.50
+            },
+            {
+                name: 'Fanta',
+                description: 'Eine Kalte 0,3L Dose Fanta',
+                price: 2.50
+            },
+            {
+                name: 'Sprite',
+                description: 'Eine Kalte 0,3L Dose Sprite',
+                price: 2.50
             }
         ]
     }

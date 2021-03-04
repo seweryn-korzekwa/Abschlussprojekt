@@ -2,6 +2,8 @@
  * In der Datei befinden sich die Wesentliche logik
  */
 
+const btn = document.getElementById('orderButton');
+
 /**
  * onload in body - function wird ausgeführt sobald die Seite geladen ist
  * Funktion fügt daten aus data-JSON in container zu der Seite zu
@@ -9,6 +11,7 @@
 function loadMealsToHTML() {
     for (let dataKey in data) {
         let mahlzeit = data[dataKey];
+        addLinksToNavbar(mahlzeit.id, mahlzeit.heading);
         addMealHeading(mahlzeit.id, mahlzeit.img, mahlzeit.heading);
 
         for (let i = 0; i < mahlzeit.meals.length; i++) {
@@ -22,13 +25,15 @@ function loadMealsToHTML() {
 * Überprüft ob es daten aus dem localStorage zum laden gibt
 */
 function checkLocalStorage() {
-    if (!!localStorage.getItem('shoppingCart') && JSON.parse(localStorage.getItem('shoppingCart')).meals.length > 0) {
+    const shoppingCart = localStorage.getItem('shoppingCart');
+    const mealsArrayLength = JSON.parse(localStorage.getItem('shoppingCart')).meals.length;
+    if (!!shoppingCart && mealsArrayLength > 0) {
         pushToHTML();
-        shoppingCartUpdate()
-        priceUpdate()
+        shoppingCartUpdate();
+        priceUpdate();
     }
     else {
-        shoppingCartIsEmpty()
+        shoppingCartIsEmpty();
     }
 }
 
@@ -57,7 +62,7 @@ function clickButton(key, index) {
 }
 
 /**
- * Step 2: Produkt wurde zum shoppingCartArray.meals in data.js zugefügt
+ * Step 2: Produkt wurde zum shoppingCart.meals in data.js zugefügt
  * @param key
  * @param index
  */
@@ -97,17 +102,31 @@ function itemSplice(index) {
      shoppingCart.meals = JSON.parse(localStorage.getItem('shoppingCart')).meals;
  }
 
-
+/* todo: ist mir zu viel html in der datei */
  function priceUpdate() {
      const data = JSON.parse(localStorage.getItem('shoppingCart')).meals;
      let price = 0;
+     const deliveryCosts = 7;
+
      for (const dataKey in data) {
          price += parseFloat(data[dataKey].price);
      }
+
+     let gesamtkosten = price + deliveryCosts
+
+     if(gesamtkosten < 45) {
+         btn.setAttribute('disabled', true)
+
+         document.getElementById('orderInfo').innerHTML = `
+            <span>Der Mindestbestellwert liegt bei 45 &euro;, dir fehlt noch ${45 - gesamtkosten} &euro; </span>`;
+     } else {
+         btn.removeAttribute('disabled')
+     }
+
+
+
      subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`
      delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`
-     totalPrice.innerHTML = `<span>${(price + deliveryCosts).toFixed(2)}</span>`
+     totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
+     btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
  }
-
-
-

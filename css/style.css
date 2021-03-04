@@ -23,11 +23,13 @@
 /* ------------------------------------------------------------------------------------------------------------------ */
 /* --- GLOBAL CLASSES ----------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------ */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    scroll-behavior: smooth; /* safari wird nicht unterstützt */
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -85,6 +87,9 @@ font-weight: 500;
     background-color: #f8f5f2;
     display: flex;
     overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 9;
 }
 /* Scrollbar wird nicht sichtbar gemacht */
 .meal_list::-webkit-scrollbar {
@@ -377,6 +382,10 @@ font-weight: 500;
 }
 .shopping_cart_button:active {
     background-color: #ffb937;
+}
+
+.shopping_cart_button:disabled {
+    background-color: lightgray;
 }
 
 .space-between {

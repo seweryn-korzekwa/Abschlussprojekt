@@ -1,0 +1,3 @@
+todo: der Plus span soll durch button ersatz werden
+todo: info programmieren
+todo: bilder hinzufügen
