@@ -264,24 +264,29 @@ font-weight: 500;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
 }
 
-.close-box {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    height: 32px;
-    width: 32px;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: beige;
-}
-
 .shopping_cart_mobile {
     display: none;
 }
 
+.close-box {display: none}
+
+/* fixme: wenn ich warenkorb schlisse in mobile ansicht
+    und das fenster breit ziehe ist warenkorb immer noch verschwunden */
+
 @media screen and (max-width: 1200px){
+    .close-box {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        height: 32px;
+        width: 32px;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: beige;
+    }
+
     .shopping_cart_container {
         width: unset;
         left: 0;
