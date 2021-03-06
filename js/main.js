@@ -28,6 +28,7 @@ function checkLocalStorage() {
     const shoppingCart = localStorage.getItem('shoppingCart');
     const mealsArrayLength = JSON.parse(localStorage.getItem('shoppingCart')).meals.length;
     if (!!shoppingCart && mealsArrayLength > 0) {
+        document.getElementById('shoppingCartIsEmpty').style.display = 'none'
         pushToHTML();
         shoppingCartUpdate();
         priceUpdate();
@@ -116,17 +117,20 @@ function itemSplice(index) {
 
      if(gesamtkosten < 45) {
          btn.setAttribute('disabled', true)
-
-         document.getElementById('orderInfo').innerHTML = `
-            <span>Der Mindestbestellwert liegt bei 45 &euro;, dir fehlt noch ${45 - gesamtkosten} &euro; </span>`;
      } else {
          btn.removeAttribute('disabled')
      }
-
-
 
      subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`
      delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`
      totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
      btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
+ }
+
+ function closeShoppingCart() {
+     document.getElementById('scc').style.display = 'none';
+ }
+
+ function openShoppingCart() {
+     document.getElementById('scc').style.display = 'block';
  }

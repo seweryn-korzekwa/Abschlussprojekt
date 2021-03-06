@@ -85,6 +85,7 @@ font-weight: 500;
 /* container für die Links */
 .meal_list {
     background-color: #f8f5f2;
+    box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.2);
     display: flex;
     overflow-x: auto;
     position: sticky;
@@ -237,39 +238,13 @@ font-weight: 500;
 @media screen and (max-width: 1200px) {
     .page_container {
         margin-right: unset;
+        margin-bottom: 40px;
     }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 /* --- FOOTER ------------------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------ */
-
-.footer {
-    display: flex;
-    justify-content: center;
-    background-color: #0a3847;
-    margin-top: 100px;
-    padding: 16px;
-}
-
-.footer a {
-    margin: 0 16px;
-    display: block;
-    color: white;
-    text-decoration: none;
-}
-
-@media screen and (max-width: 1200px) {
-    .footer {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer a {
-        margin: 8px 0;
-    }
-}
-
 
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -283,19 +258,52 @@ font-weight: 500;
     position: fixed; /* Positionierung */
     top: 0;
     right: 0;
+    z-index: 9;
 
+    background-color: white;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
 }
 
-@media screen and (max-width: 1200px) {
+.close-box {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    height: 32px;
+    width: 32px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+.shopping_cart_mobile {
+    display: none;
+}
+
+@media screen and (max-width: 1200px){
     .shopping_cart_container {
+        width: unset;
+        left: 0;
         display: none;
+    }
+
+    .shopping_cart_mobile {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 40px;
+        background-color: beige;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 
 /* --- HEADER ------------------------------------------------------------------------------------------------------- */
 .shopping_cart_header_container {
-    height: 5vh;
+    height: 7vh;
 
     display: flex;
     justify-content: center;
@@ -306,14 +314,40 @@ font-weight: 500;
     border-bottom: 1px solid lightgray;
 }
 
+.shopping_cart_header_text {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
 /* --- ITEMS -------------------------------------------------------------------------------------------------------- */
 .shopping_cart_items_container {
-    max-height: 75vh;
+    max-height: 73vh;
     overflow-y: scroll;
 
     margin: 0 16px;
 
     border-bottom: 1px solid lightgray;
+}
+
+.shopping_cart_is_empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.buy-img {
+    margin-bottom: 10px;
+    opacity: 30%;
+    height: 64px;
+}
+
+.shopping_cart_text {
+    text-align: center;
+    font-size: .9rem;
+    color: var(--grayColor);
 }
 
 .shopping_cart_items_container::-webkit-scrollbar {
@@ -358,6 +392,10 @@ font-weight: 500;
     font-weight: 300;
 }
 
+.total_price {
+    font-weight: 600;
+}
+
 /* --- BUTTON ------------------------------------------------------------------------------------------------------- */
 .shopping_cart_button_container {
     height: 10vh;
@@ -391,4 +429,24 @@ font-weight: 500;
 .space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.y-center {
+    display: flex;
+    align-items: center;
+}
+
+.delete-img {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    margin-left: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/icons/delete-black.png");
+}
+
+.delete-img:hover {
+    background-image: url("../img/icons/delete-red.png");
 }

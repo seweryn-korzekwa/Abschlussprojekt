@@ -63,7 +63,7 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
  * @returns {string}
  */
 function shoppingCartIsEmpty() {
-    shoppingCartProductContainer.innerHTML += `<span>Warenkorb ist Leer</span>`;
+    document.getElementById('shoppingCartIsEmpty').style.display = 'flex'
     subtotal.innerHTML = `<span>0 &euro;</span>`;
     delivery.innerHTML = `<span>0 &euro;</span>`;
     totalPrice.innerHTML = `<span>0 &euro;</span>`;
@@ -74,17 +74,18 @@ function shoppingCartIsEmpty() {
 /**
  * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
  */
-
 /* todo: ist mir zu viel js in der datei */
 function pushToHTML() {
     const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
     for (const dataKey in data) {
         shoppingCartProductContainer.innerHTML += `
             <div class="shopping_cart_item">
-                <div>
-                    <button onclick="deleteItem(${dataKey})">x</button>
+                <div class="space-between y-center">
                     <span class="shopping_cart_item_name">${data[dataKey].name}</span>
-                    <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                    <div class="y-center">
+                        <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                        <div class="delete-img" onclick="deleteItem('${dataKey}')"></div>
+                    </div>
                 </div>
                 <div>
                     <span class="shopping_cart_item_description">${data[dataKey].description}</span>

@@ -25,30 +25,34 @@
         <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
     </div>
 
-    <!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
+    <!-- Liste mit links für die verschiedene Mahlzeiten  -->
     <nav id="navigation" class="meal_list"></nav>
 
     <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
     <section id="mainContainer" class="main_container"></section>
 
-    <!-- fixme: footer soll verbessert werden -->
-    <footer class="footer">
-        <a href="">AGB</a>
-        <a href="">Datenschutzerklärung</a>
-        <a href="">Impressum</a>
-        <a href="">Verwendung von Cookies</a>
-    </footer>
+    <section class="shopping_cart_mobile" onclick="openShoppingCart()"><span>Warenkorb Öffnen</span></section>
+
+    <!-- fixme: hier soll footer implementiert werden -->
 
 </section> <!-- ende page_container -->
 
 <!-- container für den Warenkorb -->
-<section class="shopping_cart_container">
+<section id="scc" class="shopping_cart_container">
+
+    <div onclick="closeShoppingCart()" class="close-box">X</div>
+
     <!-- Der Titel -->
     <div class="shopping_cart_header_container">
-        <span>Warenkorb</span>
+        <span class="shopping_cart_header_text">Warenkorb</span>
     </div>
+
     <!-- Inhalt von Warenkorb -->
     <div class="shopping_cart_items_container">
+        <div id="shoppingCartIsEmpty" class="shopping_cart_is_empty">
+            <img src="img/icons/shopping-basket.png" alt="buy" class="buy-img">
+            <span class="shopping_cart_text">Wähle leckere Gerichte aus der Karte<br>und bestelle Dein Menü.</span>
+        </div>
         <div id="shoppingCartProductContainer"></div>
     </div>
 
@@ -56,12 +60,11 @@
     <div class="shopping_cart_value_container">
         <div class="space-between"><span>Zwischensumme</span> <span id="subtotal"></span></div>
         <div class="space-between"><span>Lieferkosten</span> <span id="delivery"></span></div>
-        <div class="space-between"><span>Gesamtkosten</span> <span id="totalPrice"></span></div>
+        <div class="space-between total_price"><span>Gesamtkosten</span> <span id="totalPrice"></span></div>
     </div>
 
     <!-- Button zum bestellen -->
     <div class="shopping_cart_button_container">
-        <div id="orderInfo"></div>
         <button id="orderButton" class="shopping_cart_button" >Bestellen</button>
     </div>
 
