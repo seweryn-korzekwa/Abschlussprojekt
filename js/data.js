@@ -4,48 +4,123 @@
  */
 
 /**
- * todo: Speisekarte verbessern
  * JSON Objekt mit den Mahlzeiten
  * @type JSON
  */
 const data = {
     pizza: {
         id: 'pizza',
-        img: 'img/pizza-bg.jpg',
+        img: 'img/pizza.jpg',
         heading: 'Pizza',
         meals: [
             {
-                name: 'Pizza Diablo',
+                name: 'Pizza Margarita',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 6.50
+            },
+            {
+                name: 'Pizza Salami',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
                 price: 7.50
             },
             {
-                name: 'Pizza Polska',
+                name: 'Pizza Hawai',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 100.50
+                price: 8.00
             }
         ],
     },
+    cutlet: {
+        id: 'schnitzel',
+        img: 'img/steak.jpg',
+        heading: 'Schnitzel',
+        meals: [
+            {
+                name: 'Zigeuner Schnitzel',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 12.50
+            },
+            {
+                name: 'Wiener Schnitzel',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 11.00
+            },
+            {
+                name: 'Bayerischer Schnitzel',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 14.50
+            }
+        ]
+    },
+    burger: {
+        id: 'burger',
+        img: 'img/burger.jpg',
+        heading: 'Burger',
+        meals: [
+            {
+                name: 'Cheese Burger',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 6.50
+            },
+            {
+                name: 'Hamburger',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 5.50
+            },
+            {
+                name: 'Crispy Chicken Burger',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 8.00
+            }
+        ]
+    },
     salad: {
         id: 'salad',
-        img: 'img/pizza-bg.jpg',
+        img: 'img/salad.jpg',
         heading: 'Salate',
         meals: [
             {
-                name: 'Pizza Niemiecka',
+                name: 'Griechisch Salat',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 9.50
+                price: 7.50
             },
             {
-                name: 'Pizza Chinska',
+                name: 'Italienischer Salat',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 8.00
+            },
+            {
+                name: 'Putenstreifen Salat',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 9.50
+            }
+        ]
+    },
+    soup: {
+        id: 'suppe',
+        img: 'img/soup.jpg',
+        heading: 'Suppe',
+        meals: [
+            {
+                name: 'Hühner Suppe',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 5.50
+            },
+            {
+                name: 'Kürbis Suppe',
                 description: 'In der zukunft kommt hier ein Beschreibung Text',
                 price: 10.50
+            },
+            {
+                name: 'Pilzen Suppe',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 7.00
             }
         ]
     },
     drinks: {
-        id: 'driks',
-        img: 'img/pizza-bg.jpg',
+        id: 'drink',
+        img: 'img/drink.jpg',
         heading: 'Getränke',
         meals: [
             {

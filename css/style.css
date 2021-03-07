@@ -51,7 +51,7 @@ body {
     background-size: cover;
 
     height: var(--logoSize); /* Größe und Form */
-    width: var(--logoSize);
+    width: var(--logoSize);/* Variable - wert im root bereich */
     border: 8px solid white;
     border-radius: 50%;
     box-sizing: border-box;
@@ -60,6 +60,7 @@ body {
     bottom: 0;
     /* Berechnung um das Logo mittig von Bildschirm anzuzeigen  */
     left: calc(50% - (var(--logoSize) / 2) );
+    /* Berechnung um das logo um die hälfte der eigene größe auf der y-Achse nach unten zu verschieben */
     transform: translate(0, calc( var(--logoSize) / 2 ) );
 }
 
@@ -269,9 +270,6 @@ font-weight: 500;
 }
 
 .close-box {display: none}
-
-/* fixme: wenn ich warenkorb schlisse in mobile ansicht
-    und das fenster breit ziehe ist warenkorb immer noch verschwunden */
 
 @media screen and (max-width: 1200px){
     .close-box {
