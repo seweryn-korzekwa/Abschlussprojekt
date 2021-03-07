@@ -103,7 +103,6 @@ function itemSplice(index) {
      shoppingCart.meals = JSON.parse(localStorage.getItem('shoppingCart')).meals;
  }
 
-/* todo: ist mir zu viel html in der datei */
  function priceUpdate() {
      const data = JSON.parse(localStorage.getItem('shoppingCart')).meals;
      let price = 0;
@@ -121,10 +120,8 @@ function itemSplice(index) {
          btn.removeAttribute('disabled')
      }
 
-     subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`
-     delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`
-     totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
-     btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
+     test3(price, deliveryCosts, gesamtkosten)
+
  }
 
  function closeShoppingCart() {
@@ -134,3 +131,30 @@ function itemSplice(index) {
  function openShoppingCart() {
      document.getElementById('scc').style.display = 'block';
  }
+
+/**
+ * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
+ */
+function pushToHTML() {
+    const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
+    for (const dataKey in data) {
+        shoppingCartProductContainer.innerHTML += `
+            <div class="shopping_cart_item">
+                <div class="space-between y-center">
+                    <span class="shopping_cart_item_name">${data[dataKey].name}</span>
+                    <div class="y-center">
+                        <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                        <div class="delete-img" onclick="deleteItem('${dataKey}')"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="shopping_cart_item_description">${data[dataKey].description}</span>
+                </div>
+            </div>
+        `
+    }
+}
+
+function test4() {
+
+}
