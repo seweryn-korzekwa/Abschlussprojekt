@@ -5,14 +5,14 @@ todo: Dokumentation verbessern
 06.03.2021 - 5 Kategorie je 3 Produkte inklusive Bilder
 
 07.03.2021 - Liste mit fragen an die Dokumentation anfertigen !
+07.03.2021 - funktionen anpassen !!
 todo: 07.03.2021 - Produkte Beschreibung !
-todo: 07.03.2021 - funktionen anpassen !!
 todo: 07.03.2021 - Warenkorb mobile Ansicht !!
 todo: 07.03.2021 - Dokumentation 1-AP fertig machen !!!
 
 Dokumentation Fragen
-Was erwarten die Lehrer in Vorwort
-Was kommt in den Anhang
-Was kommt in die Quellen
-Welche Reihenfolge hat drittes Abschnitt
-Quellenverzeichnis ob der Format in Ordnung ist
+Was erwarten die Lehrer in Vorwort?
+Was kommt in den Anhang?
+Was kommt in die Quellen?
+Welche Reihenfolge hat drittes Abschnitt?
+Quellenverzeichnis ob der Format in Ordnung ist?

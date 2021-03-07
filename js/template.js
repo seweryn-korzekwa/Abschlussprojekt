@@ -79,3 +79,20 @@ function test3(price, deliveryCosts, gesamtkosten) {
     totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
     btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
 }
+
+function test4(data, dataKey) {
+    shoppingCartProductContainer.innerHTML += `
+            <div class="shopping_cart_item">
+                <div class="space-between y-center">
+                    <span class="shopping_cart_item_name">${data[dataKey].name}</span>
+                    <div class="y-center">
+                        <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                        <div class="delete-img" onclick="deleteItem('${dataKey}')"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="shopping_cart_item_description">${data[dataKey].description}</span>
+                </div>
+            </div>
+        `
+}

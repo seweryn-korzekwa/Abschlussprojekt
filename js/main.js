@@ -138,23 +138,7 @@ function itemSplice(index) {
 function pushToHTML() {
     const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
     for (const dataKey in data) {
-        shoppingCartProductContainer.innerHTML += `
-            <div class="shopping_cart_item">
-                <div class="space-between y-center">
-                    <span class="shopping_cart_item_name">${data[dataKey].name}</span>
-                    <div class="y-center">
-                        <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
-                        <div class="delete-img" onclick="deleteItem('${dataKey}')"></div>
-                    </div>
-                </div>
-                <div>
-                    <span class="shopping_cart_item_description">${data[dataKey].description}</span>
-                </div>
-            </div>
-        `
+        test4(data, dataKey);
     }
 }
 
-function test4() {
-
-}
