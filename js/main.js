@@ -1,21 +1,26 @@
 /**
- * In der Datei befinden sich die Wesentliche logik
+ * In der Datei befinden sich die Funktionen für die Programm Logik
  */
 
 const btn = document.getElementById('orderButton');
 
-/**
- * onload in body - function wird ausgeführt sobald die Seite geladen ist
- * Funktion fügt daten aus data-JSON in container zu der Seite zu
- */
-function loadMealsToHTML() {
-    for (let dataKey in data) {
-        let mahlzeit = data[dataKey];
-        addLinksToNavbar(mahlzeit.id, mahlzeit.heading);
-        addMealHeading(mahlzeit.id, mahlzeit.img, mahlzeit.heading);
+const minPrice = 25; /* Mindestbestellwert */
+const deliveryCosts = 7; /*Lieferkosten*/
 
-        for (let i = 0; i < mahlzeit.meals.length; i++) {
-            let meal = mahlzeit.meals[i];
+
+/**
+ * Die Funktion Implementiert die Navigations und Speisekarte inhalte in die index.html Datei
+ * Funktion wird ausgeführt sobald die Seite geladen hat.
+ */
+function addElementsToHTML() {
+
+    for (let dataKey in data) {
+        let product = data[dataKey];
+        addLinksToNavbar(product.id, product.heading);
+        addProductHeader(product.id, product.img, product.heading);
+
+        for (let i = 0; i < product.meals.length; i++) {
+            let meal = product.meals[i];
             addMealField(meal.name, meal.description, meal.price, dataKey, i);
         }
     }
@@ -26,20 +31,20 @@ function loadMealsToHTML() {
 */
 function checkLocalStorage() {
     const shoppingCart = localStorage.getItem('shoppingCart');
-    const mealsArrayLength = JSON.parse(localStorage.getItem('shoppingCart')).meals.length;
-    if (!!shoppingCart && mealsArrayLength > 0) {
-        document.getElementById('shoppingCartIsEmpty').style.display = 'none'
+    const meals = JSON.parse(localStorage.getItem('shoppingCart')).meals.length;
+    
+    if (!!shoppingCart && meals > 0) {
+        document.getElementById('shoppingCartIsEmpty').style.display = 'none' /*fixme: kürzer machen*/
         pushToHTML();
         shoppingCartUpdate();
-        priceUpdate();
-    }
-    else {
+        priceUpdate(deliveryCosts);
+    } else {
         shoppingCartIsEmpty();
     }
 }
 
 /**
- * Lösch daten aus dem Warenkorb Array
+ * Löscht daten aus dem Warenkorb Array
  * @param {int} index
  */
 function deleteItem(index) {
@@ -50,7 +55,7 @@ function deleteItem(index) {
 }
 
 /**
- * Step 1: Button wurder geglickt
+ * Button wurde geklickt
  * @param key
  * @param index
  */
@@ -59,11 +64,11 @@ function clickButton(key, index) {
     updateLocalStorage(); /* Step 3: Produkte aus dem Array werden in localStorage gespeichert */
     shoppingCartClear() /* Step 4: HTML inhalt wird aus dem Warenkorb gelöscht */
     checkLocalStorage() /* Step 5: localStorage wird zum HTML inhalt gepusht */
-    priceUpdate()
+    priceUpdate(deliveryCosts)
 }
 
 /**
- * Step 2: Produkt wurde zum shoppingCart.meals in data.js zugefügt
+ * Produkt wurde zum shoppingCart.meals in data.js zugefügt
  * @param key
  * @param index
  */
@@ -73,7 +78,7 @@ function pushProductToShoppingCart(key, index) {
 }
 
 /**
- * Step 3: localStorage ladet die daten aus shoppingCartArray nochmal neu
+ * localStorage ladet die daten aus shoppingCartArray nochmal neu
  */
 function updateLocalStorage() {
     localStorage.removeItem('shoppingCart');
@@ -81,7 +86,7 @@ function updateLocalStorage() {
 }
 
 /**
- * Step 4: Löscht den HTML inhalt aus Warenkorb
+ * Löscht den HTML inhalt aus Warenkorb
  */
 function shoppingCartClear() {
     shoppingCartProductContainer.innerHTML = '';
@@ -96,17 +101,19 @@ function itemSplice(index) {
 }
 
 /**
- * Updatet ShoppingCartArray in data.js
- * @param meals
+ * Updatet ShoppingCart in data.js
  */
  function shoppingCartUpdate() {
      shoppingCart.meals = JSON.parse(localStorage.getItem('shoppingCart')).meals;
  }
 
- function priceUpdate() {
+/**
+ *
+ * @param {int} deliveryCosts - Lieferkosten
+ */
+function priceUpdate(deliveryCosts) {
      const data = JSON.parse(localStorage.getItem('shoppingCart')).meals;
      let price = 0;
-     const deliveryCosts = 7;
 
      for (const dataKey in data) {
          price += parseFloat(data[dataKey].price);
@@ -114,31 +121,48 @@ function itemSplice(index) {
 
      let gesamtkosten = price + deliveryCosts
 
-     if(gesamtkosten < 45) {
+     checkButton(gesamtkosten, minPrice)
+     changePrice(price, deliveryCosts, gesamtkosten)
+ }
+
+/**
+ * Die Funktion überprüft ob die Mindestbestellgrenze erreicht wurde
+ * @example ja - der Button wird aktiviert
+ * @example nein - der Button wird deaktiviert
+ * @param {int} gesamtkosten - Gesamtkosten = preis + Lieferkosten
+ * @param {int} min - Mindestbestellwert
+ */
+function checkButton(gesamtkosten, min) {
+     if(gesamtkosten < min) {
          btn.setAttribute('disabled', true)
      } else {
          btn.removeAttribute('disabled')
      }
-
-     test3(price, deliveryCosts, gesamtkosten)
-
  }
 
- function closeShoppingCart() {
-     document.getElementById('scc').style.display = 'none';
- }
-
- function openShoppingCart() {
-     document.getElementById('scc').style.display = 'block';
- }
 
 /**
- * Zweck der Funktion ist die HTML Elemente in Warenkorb anzuzeigen
+ * Die Funktion ladet die daten aus dem localStorage und ruft eine funktion auf die die Daten in Warenkorb anzeigt
  */
 function pushToHTML() {
     const data = JSON.parse(localStorage.getItem('shoppingCart')).meals
+
     for (const dataKey in data) {
-        test4(data, dataKey);
+        pushProduct(data, dataKey);
     }
+}
+
+/**
+ * Die Funktion Schlisst den Warenkorb in der Mobile ansicht dem der Container deaktiviert wird
+ */
+function closeShoppingCart() {
+    document.getElementById('scc').style.display = 'none';
+}
+
+/**
+ * Die Funktion öffnet den Warenkorb in der Mobile ansicht dem der Container aktiviert wird
+ */
+function openShoppingCart() {
+    document.getElementById('scc').style.display = 'block';
 }
 

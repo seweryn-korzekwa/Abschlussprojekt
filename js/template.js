@@ -4,7 +4,7 @@
  */
 
 /**
- * HTML ID's um befehle abzukürzen
+ * ID's um befehle abzukürzen
  */
 const mainCont = document.getElementById('mainContainer');
 const navbar = document.getElementById('navigation');
@@ -12,25 +12,27 @@ const shoppingCartProductContainer = document.getElementById('shoppingCartProduc
 const subtotal = document.getElementById('subtotal');
 const delivery = document.getElementById('delivery');
 const totalPrice = document.getElementById('totalPrice')
+const shoppingCartEmpty = document.getElementById('shoppingCartIsEmpty');
 
 /**
+ * Funktion fügt Links in der Navigation Container ein
  * @param {string} id
+ * @param {string} name
  */
 function addLinksToNavbar(id, name) {
      navbar.innerHTML += `
         <a href="#${id}">${name}</a>
-    `
+    `;
 }
 
 /**
  * die Funktion generiert einen überschrift mit Bild für die jeweiligen sektionen der Speisekarte
- * @param id
- * @param img
- * @param heading
- * @returns {string}
+ * @param {int} id
+ * @param {string} img
+ * @param {string} heading
  */
-function addMealHeading(id, img, heading) {
-    return mainCont.innerHTML += `
+function addProductHeader(id, img, heading) {
+     mainCont.innerHTML += `
         <div class="heading_container">
             <img id="${id}" class="heading_img" src="${img}" alt="Image">
             <h2 class="heading_txt">${heading}</h2>
@@ -40,15 +42,14 @@ function addMealHeading(id, img, heading) {
 
 /**
  * die Funktion generiert einen container mit informationen aus der speisekarte
- * @param mealName
- * @param mealDescription
- * @param mealPrice
- * @param key
- * @param index
- * @returns {string}
+ * @param {int} mealName
+ * @param {string} mealDescription
+ * @param {int} mealPrice
+ * @param {string} key
+ * @param {int} index
  */
 function addMealField(mealName, mealDescription, mealPrice, key, index) {
-    return mainCont.innerHTML += `
+     mainCont.innerHTML += `
         <div class="meal_container">
             <h3 class="meal_titel">${mealName}</h3>
             <span class="meal_description">${mealDescription}</span>
@@ -60,39 +61,47 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
 
 /**
  * ie Funktion wird ausgeführt sobald localStorage leer ist beim Neuladen der seite
- * @returns {string}
  */
 function shoppingCartIsEmpty() {
-    document.getElementById('shoppingCartIsEmpty').style.display = 'flex'
+    shoppingCartEmpty.style.display = 'flex';
     subtotal.innerHTML = `<span>0 &euro;</span>`;
     delivery.innerHTML = `<span>0 &euro;</span>`;
     totalPrice.innerHTML = `<span>0 &euro;</span>`;
     btn.innerHTML = `<span>Fülle dein Warenkorb</span>`;
-    btn.setAttribute('disabled', true)
+    btn.setAttribute('disabled', true); /*fixme : anderen namen*/
 }
 
-
-
-function test3(price, deliveryCosts, gesamtkosten) {
-    subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`
-    delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`
-    totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
-    btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`
+/**
+ *
+ * @param {int} price
+ * @param {int} deliveryCosts
+ * @param {int} gesamtkosten
+ */
+function changePrice(price, deliveryCosts, gesamtkosten) {
+    subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`;
+    delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`;
+    totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
+    btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
 }
 
-function test4(data, dataKey) {
+/**
+ *
+ * @param {Object} data
+ * @param {String} dataKey
+ */
+function pushProduct(data, dataKey) {
     shoppingCartProductContainer.innerHTML += `
-            <div class="shopping_cart_item">
-                <div class="space-between y-center">
-                    <span class="shopping_cart_item_name">${data[dataKey].name}</span>
-                    <div class="y-center">
-                        <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
-                        <div class="delete-img" onclick="deleteItem('${dataKey}')"></div>
-                    </div>
-                </div>
-                <div>
-                    <span class="shopping_cart_item_description">${data[dataKey].description}</span>
+        <div class="shopping_cart_item">
+            <div class="space-between y-center">
+                <span class="shopping_cart_item_name">${data[dataKey].name}</span>
+                <div class="y-center">
+                    <span class="shopping_cart_item_price">${data[dataKey].price.toFixed(2)} &euro;</span>
+                    <div class="delete-img" onclick="deleteItem('${dataKey}')"></div>
                 </div>
             </div>
-        `
+            <div>
+                <span class="shopping_cart_item_description">${data[dataKey].description}</span>
+            </div>
+        </div>
+    `;
 }

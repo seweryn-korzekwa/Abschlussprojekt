@@ -4,6 +4,14 @@
  */
 
 /**
+ * JSON Objekt als zwischenspeicher für den Warenkorb
+ * @type JSON
+ */
+let shoppingCart = {
+    meals: []
+};
+
+/**
  * JSON Objekt mit den Mahlzeiten
  * @type JSON
  */
@@ -140,12 +148,4 @@ const data = {
             }
         ]
     }
-};
-
-/**
- * JSON Objekt als zwischenspeicher für den Warenkorb
- * @type JSON
- */
-let shoppingCart = {
-    meals: []
 };
