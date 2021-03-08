@@ -17,7 +17,6 @@
 
     /* sizes */
     --logoSize: 150px;
-    --logoMobileSize: 100px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -119,27 +118,6 @@ font-weight: 500;
 /* Zustand von Navigations Links wenn Mauszeiger drüber schwebt */
 .meal_list a:hover {
     border-bottom: 2px solid var(--primaryColor);
-}
-
-/* --- Mobile ansicht für den Kopf Bereich -------------------------------------------------------------------------- */
-@media screen and (max-width: 1200px) {
-    .menu_image {
-        height: 10rem;
-    }
-
-    .menu_description {
-        margin-top: 5rem;
-        text-align: center;
-    }
-
-    .logo {
-        height: var(--logoMobileSize); /* Größe und Form */
-        width: var(--logoMobileSize);
-        border: 4px solid white;
-
-        left: calc(50% - (var(--logoMobileSize) / 2) ); /* Positionierung */
-        transform: translate(0, calc( var(--logoMobileSize) / 2 ) );
-    }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -263,50 +241,6 @@ font-weight: 500;
 
     background-color: white;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
-}
-
-.shopping_cart_mobile {
-    display: none;
-}
-
-.close-box {display: none}
-
-@media screen and (max-width: 1200px){
-    .close-box {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        height: 32px;
-        width: 32px;
-        border-radius: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: beige;
-    }
-
-    .shopping_cart_container {
-        width: unset;
-        left: 0;
-        top: 16px;
-        display: none;
-        border-top-left-radius: 25px;
-        border-top-right-radius: 25px;
-        box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.2);
-
-    }
-
-    .shopping_cart_mobile {
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        height: 40px;
-        background-color: beige;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
 }
 
 /* --- HEADER ------------------------------------------------------------------------------------------------------- */

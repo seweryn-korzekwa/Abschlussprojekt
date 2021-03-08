@@ -151,18 +151,3 @@ function pushToHTML() {
         pushProduct(data, dataKey);
     }
 }
-
-/**
- * Die Funktion Schlisst den Warenkorb in der Mobile ansicht dem der Container deaktiviert wird
- */
-function closeShoppingCart() {
-    document.getElementById('scc').style.display = 'none';
-}
-
-/**
- * Die Funktion öffnet den Warenkorb in der Mobile ansicht dem der Container aktiviert wird
- */
-function openShoppingCart() {
-    document.getElementById('scc').style.display = 'block';
-}
-
