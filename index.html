@@ -9,7 +9,7 @@
 </head>
 
 <!-- Funktion onload generiert Seiteninhalt (Mahlzeiten) -->
-<body onload="loadMealsToHTML(); checkLocalStorage()">
+<body onload="addElementsToHTML(); checkLocalStorage()">
 
 <!-- container für das ganze Inhalt der Seite -->
 <section class="page_container">
@@ -25,49 +25,41 @@
         <span>Eine große auswahl an Pizzen für den großen Hunger. Bei bestellungen in der Mittagspause Sparen Sie 10%</span>
     </div>
 
-    <!-- PROTOTYP: Liste mit links für die verschiedene Mahlzeiten  -->
-    <nav class="meal_list">
-        <a href="func.html">Angebote</a>
-        <a href="#pizza">Pizza</a>
-        <a href="#">Salate</a>
-        <a href="#">Vorspeisen</a>
-        <a href="#">Getränke</a>
-        <a href="#">Salate</a>
-        <a href="#">Vorspeisen</a>
-        <a href="#">Getränke</a>
-    </nav>
+    <!-- Liste mit links für die verschiedene Mahlzeiten  -->
+    <nav id="navigation" class="meal_list"></nav>
 
     <!-- container für die mit JavaScript dynamisch generierte Pizzas -->
     <section id="mainContainer" class="main_container"></section>
 
-    <footer class="footer">
-        <a href="">AGB</a>
-        <a href="">Datenschutzerklärung</a>
-        <a href="">Impressum</a>
-        <a href="">Verwendung von Cookies</a>
-    </footer>
-
 </section> <!-- ende page_container -->
 
 <!-- container für den Warenkorb -->
-<section class="shopping_cart_container">
+<section id="scc" class="shopping_cart_container">
+
     <!-- Der Titel -->
     <div class="shopping_cart_header_container">
-        <span>Warenkorb</span>
+        <span class="shopping_cart_header_text">Warenkorb</span>
     </div>
+
     <!-- Inhalt von Warenkorb -->
-    <div id="shoppingCartProductContainer" class="shopping_cart_items_container"></div>
+    <div class="shopping_cart_items_container">
+        <div id="shoppingCartIsEmpty" class="shopping_cart_is_empty">
+            <img src="img/icons/shopping-basket.png" alt="buy" class="buy-img">
+            <span class="shopping_cart_text">Wähle leckere Gerichte aus der Karte<br>und bestelle Dein Menü.</span>
+        </div>
+        <div id="shoppingCartProductContainer"></div>
+    </div>
 
     <!-- Der Bestellwert und Gesamtsumme -->
     <div class="shopping_cart_value_container">
         <div class="space-between"><span>Zwischensumme</span> <span id="subtotal"></span></div>
         <div class="space-between"><span>Lieferkosten</span> <span id="delivery"></span></div>
-        <div class="space-between"><span>Gesamtkosten</span> <span id="totalPrice"></span></div>
+        <div class="space-between total_price"><span>Gesamtkosten</span> <span id="totalPrice"></span></div>
     </div>
 
     <!-- Button zum bestellen -->
     <div class="shopping_cart_button_container">
-        <button class="shopping_cart_button">Bestellen</button>
+        <button id="orderButton" class="shopping_cart_button" >Bestellen</button>
     </div>
 
 </section>

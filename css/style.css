@@ -17,17 +17,18 @@
 
     /* sizes */
     --logoSize: 150px;
-    --logoMobileSize: 100px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 /* --- GLOBAL CLASSES ----------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------ */
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    scroll-behavior: smooth; /* safari wird nicht unterstützt */
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -49,7 +50,7 @@ body {
     background-size: cover;
 
     height: var(--logoSize); /* Größe und Form */
-    width: var(--logoSize);
+    width: var(--logoSize);/* Variable - wert im root bereich */
     border: 8px solid white;
     border-radius: 50%;
     box-sizing: border-box;
@@ -58,6 +59,7 @@ body {
     bottom: 0;
     /* Berechnung um das Logo mittig von Bildschirm anzuzeigen  */
     left: calc(50% - (var(--logoSize) / 2) );
+    /* Berechnung um das logo um die hälfte der eigene größe auf der y-Achse nach unten zu verschieben */
     transform: translate(0, calc( var(--logoSize) / 2 ) );
 }
 
@@ -83,8 +85,12 @@ font-weight: 500;
 /* container für die Links */
 .meal_list {
     background-color: #f8f5f2;
+    box-shadow: 0 8px 8px -4px rgba(0, 0, 0, 0.2);
     display: flex;
     overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 9;
 }
 /* Scrollbar wird nicht sichtbar gemacht */
 .meal_list::-webkit-scrollbar {
@@ -112,27 +118,6 @@ font-weight: 500;
 /* Zustand von Navigations Links wenn Mauszeiger drüber schwebt */
 .meal_list a:hover {
     border-bottom: 2px solid var(--primaryColor);
-}
-
-/* --- Mobile ansicht für den Kopf Bereich -------------------------------------------------------------------------- */
-@media screen and (max-width: 1200px) {
-    .menu_image {
-        height: 10rem;
-    }
-
-    .menu_description {
-        margin-top: 5rem;
-        text-align: center;
-    }
-
-    .logo {
-        height: var(--logoMobileSize); /* Größe und Form */
-        width: var(--logoMobileSize);
-        border: 4px solid white;
-
-        left: calc(50% - (var(--logoMobileSize) / 2) ); /* Positionierung */
-        transform: translate(0, calc( var(--logoMobileSize) / 2 ) );
-    }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -232,39 +217,13 @@ font-weight: 500;
 @media screen and (max-width: 1200px) {
     .page_container {
         margin-right: unset;
+        margin-bottom: 40px;
     }
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 /* --- FOOTER ------------------------------------------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------------------------------------------------ */
-
-.footer {
-    display: flex;
-    justify-content: center;
-    background-color: #0a3847;
-    margin-top: 100px;
-    padding: 16px;
-}
-
-.footer a {
-    margin: 0 16px;
-    display: block;
-    color: white;
-    text-decoration: none;
-}
-
-@media screen and (max-width: 1200px) {
-    .footer {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer a {
-        margin: 8px 0;
-    }
-}
-
 
 
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -278,19 +237,15 @@ font-weight: 500;
     position: fixed; /* Positionierung */
     top: 0;
     right: 0;
+    z-index: 9;
 
+    background-color: white;
     box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
-}
-
-@media screen and (max-width: 1200px) {
-    .shopping_cart_container {
-        display: none;
-    }
 }
 
 /* --- HEADER ------------------------------------------------------------------------------------------------------- */
 .shopping_cart_header_container {
-    height: 5vh;
+    height: 7vh;
 
     display: flex;
     justify-content: center;
@@ -301,14 +256,40 @@ font-weight: 500;
     border-bottom: 1px solid lightgray;
 }
 
+.shopping_cart_header_text {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
 /* --- ITEMS -------------------------------------------------------------------------------------------------------- */
 .shopping_cart_items_container {
-    max-height: 75vh;
+    max-height: 73vh;
     overflow-y: scroll;
 
     margin: 0 16px;
 
     border-bottom: 1px solid lightgray;
+}
+
+.shopping_cart_is_empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.buy-img {
+    margin-bottom: 10px;
+    opacity: 30%;
+    height: 64px;
+}
+
+.shopping_cart_text {
+    text-align: center;
+    font-size: .9rem;
+    color: var(--grayColor);
 }
 
 .shopping_cart_items_container::-webkit-scrollbar {
@@ -353,6 +334,10 @@ font-weight: 500;
     font-weight: 300;
 }
 
+.total_price {
+    font-weight: 600;
+}
+
 /* --- BUTTON ------------------------------------------------------------------------------------------------------- */
 .shopping_cart_button_container {
     height: 10vh;
@@ -379,7 +364,31 @@ font-weight: 500;
     background-color: #ffb937;
 }
 
+.shopping_cart_button:disabled {
+    background-color: lightgray;
+}
+
 .space-between {
     display: flex;
     justify-content: space-between;
+}
+
+.y-center {
+    display: flex;
+    align-items: center;
+}
+
+.delete-img {
+    height: 16px;
+    width: 16px;
+    cursor: pointer;
+    margin-left: 16px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("../img/icons/delete-black.png");
+}
+
+.delete-img:hover {
+    background-image: url("../img/icons/delete-red.png");
 }
