@@ -1,6 +1,7 @@
 /**
  * In der Datei befinden sich funktionen die einen HTML-Templates dynamisch Generieren
  * Funktionen werden in der regel in der template.js Datei aufgerufen
+ * todo: Kommentare ausführlich beschreiben
  */
 
 /**
@@ -79,7 +80,7 @@ function shoppingCartIsEmpty() {
  */
 function changePrice(price, deliveryCosts, gesamtkosten) {
     subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`;
-    delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`;
+    delivery.innerHTML = `<span>${deliveryCosts.toFixed(2)} &euro;</span>`;
     totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
     btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
 }

@@ -296,6 +296,7 @@ font-weight: 500;
     color: var(--darkColor);
     font-size: .9rem;
     margin-left: auto;
+    margin-right: 16px;
 }
 
 .shopping_cart_item_description {
@@ -371,7 +372,6 @@ font-weight: 500;
     height: 16px;
     width: 16px;
     cursor: pointer;
-    margin-left: 16px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
