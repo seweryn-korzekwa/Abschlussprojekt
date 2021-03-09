@@ -151,3 +151,10 @@ function pushToHTML() {
         pushProduct(data, dataKey);
     }
 }
+
+/**
+ *
+ */
+function btnAction() {
+    window.alert('Deine Bestellung wurde Aufgenommen')
+}

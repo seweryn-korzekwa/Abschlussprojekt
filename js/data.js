@@ -16,28 +16,6 @@ let shoppingCart = {
  * @type JSON
  */
 const data = {
-    pizza: {
-        id: 'pizza',
-        img: 'img/pizza.jpg',
-        heading: 'Pizza',
-        meals: [
-            {
-                name: 'Pizza Margarita',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 6.50
-            },
-            {
-                name: 'Pizza Salami',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 7.50
-            },
-            {
-                name: 'Pizza Hawai',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
-                price: 8.00
-            }
-        ],
-    },
     cutlet: {
         id: 'schnitzel',
         img: 'img/steak.jpg',
@@ -59,6 +37,28 @@ const data = {
                 price: 14.50
             }
         ]
+    },
+    pizza: {
+        id: 'pizza',
+        img: 'img/pizza.jpg',
+        heading: 'Pizza',
+        meals: [
+            {
+                name: 'Pizza Margarita',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 6.50
+            },
+            {
+                name: 'Pizza Salami',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 7.50
+            },
+            {
+                name: 'Pizza Hawai',
+                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                price: 8.00
+            }
+        ],
     },
     burger: {
         id: 'burger',

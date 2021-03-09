@@ -68,7 +68,6 @@ body {
     margin: 3rem 1rem;
 }
 
-
 .menu_description h1 {
 font-weight: 500;
     font-size: 1.5rem;
@@ -214,18 +213,6 @@ font-weight: 500;
     margin-right: 400px;
 }
 
-@media screen and (max-width: 1200px) {
-    .page_container {
-        margin-right: unset;
-        margin-bottom: 40px;
-    }
-}
-
-/* ------------------------------------------------------------------------------------------------------------------ */
-/* --- FOOTER ------------------------------------------------------------------------------------------------------- */
-/* ------------------------------------------------------------------------------------------------------------------ */
-
-
 /* ------------------------------------------------------------------------------------------------------------------ */
 /* --- SHOPPING CART ------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------------------------ */
@@ -264,12 +251,16 @@ font-weight: 500;
 
 /* --- ITEMS -------------------------------------------------------------------------------------------------------- */
 .shopping_cart_items_container {
-    max-height: 73vh;
+    max-height: 68vh;
     overflow-y: scroll;
 
     margin: 0 16px;
 
     border-bottom: 1px solid lightgray;
+}
+
+.shopping_cart_items_container::-webkit-scrollbar {
+    display: none;
 }
 
 .shopping_cart_is_empty {
@@ -290,10 +281,6 @@ font-weight: 500;
     text-align: center;
     font-size: .9rem;
     color: var(--grayColor);
-}
-
-.shopping_cart_items_container::-webkit-scrollbar {
-    display: none;
 }
 
 .shopping_cart_item{
@@ -320,13 +307,15 @@ font-weight: 500;
 
 /* --- PRICE -------------------------------------------------------------------------------------------------------- */
 .shopping_cart_value_container {
-    height: 10vh;
+    height: 15vh;
 
     margin: 0 16px;
+    padding: 25px 0;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    box-sizing: border-box;
 
     border-bottom: 1px solid lightgray;
 
