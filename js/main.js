@@ -9,7 +9,7 @@ const deliveryCosts = 7; /*Lieferkosten*/
 
 
 /**
- * ONLOAD - Funktion wird ausgeführt sobald die Seite geladen hat.
+ * ONLOAD - Funktion wird ausgeführt sobald die Seite geladen hat
  * Die Funktion Implementiert die Navigations und Speisekarte inhalte in die index.html Datei
  */
 function addElementsToHTML() {
