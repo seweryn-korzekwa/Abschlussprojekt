@@ -9,8 +9,8 @@ const deliveryCosts = 7; /*Lieferkosten*/
 
 
 /**
+ * ONLOAD - Funktion wird ausgeführt sobald die Seite geladen hat.
  * Die Funktion Implementiert die Navigations und Speisekarte inhalte in die index.html Datei
- * Funktion wird ausgeführt sobald die Seite geladen hat.
  */
 function addElementsToHTML() {
 
@@ -27,7 +27,8 @@ function addElementsToHTML() {
 }
 
 /**
-* Überprüft ob es daten aus dem localStorage zum laden gibt
+ * ONLOAD - Funktion wird ausgeführt sobald die Seite geladen hat.
+ * Überprüft ob es daten aus dem localStorage zum laden gibt
 */
 function checkLocalStorage() {
     const shoppingCart = localStorage.getItem('shoppingCart');
@@ -44,6 +45,21 @@ function checkLocalStorage() {
 }
 
 /**
+ * EVENT - Wird ausgeführt sobald der Benutzer auf ein Produkt zum Warenkorb zufügt
+ * Button wurde geklickt
+ * @param key
+ * @param index
+ */
+function clickButton(key, index) {
+    pushProductToShoppingCart(key, index) /* Step 2: Produkte werden zum Array in JSON gepusht in data.js */
+    updateLocalStorage(); /* Step 3: Produkte aus dem Array werden in localStorage gespeichert */
+    shoppingCartClear() /* Step 4: HTML inhalt wird aus dem Warenkorb gelöscht */
+    checkLocalStorage() /* Step 5: localStorage wird zum HTML inhalt gepusht */
+    priceUpdate(deliveryCosts)
+}
+
+/**
+ * EVENT - Wird ausgeführt sobald der Benutzer ein Produkt aus dem Warenkorb löscht
  * Löscht daten aus dem Warenkorb Array
  * @param {int} index
  */
@@ -55,16 +71,11 @@ function deleteItem(index) {
 }
 
 /**
- * Button wurde geklickt
- * @param key
- * @param index
+ *  EVENT - Wird ausgeführt sobald der Benutzer aud den Bestell Button gedrückt hat
+ *  die Funktion informiert den Benutzer das seine Bestellung aufgenommen wurde
  */
-function clickButton(key, index) {
-    pushProductToShoppingCart(key, index) /* Step 2: Produkte werden zum Array in JSON gepusht in data.js */
-    updateLocalStorage(); /* Step 3: Produkte aus dem Array werden in localStorage gespeichert */
-    shoppingCartClear() /* Step 4: HTML inhalt wird aus dem Warenkorb gelöscht */
-    checkLocalStorage() /* Step 5: localStorage wird zum HTML inhalt gepusht */
-    priceUpdate(deliveryCosts)
+function btnAction() {
+    window.alert('Deine Bestellung wurde Aufgenommen')
 }
 
 /**
@@ -125,6 +136,7 @@ function priceUpdate(deliveryCosts) {
      changePrice(price, deliveryCosts, gesamtkosten)
  }
 
+
 /**
  * Die Funktion überprüft ob die Mindestbestellgrenze erreicht wurde
  * @example ja - der Button wird aktiviert
@@ -140,7 +152,6 @@ function checkButton(gesamtkosten, min) {
      }
  }
 
-
 /**
  * Die Funktion ladet die daten aus dem localStorage und ruft eine funktion auf die die Daten in Warenkorb anzeigt
  */
@@ -150,11 +161,4 @@ function pushToHTML() {
     for (const dataKey in data) {
         pushProduct(data, dataKey);
     }
-}
-
-/**
- *
- */
-function btnAction() {
-    window.alert('Deine Bestellung wurde Aufgenommen')
 }
