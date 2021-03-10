@@ -68,8 +68,8 @@ function shoppingCartIsEmpty() {
     subtotal.innerHTML = `<span>0 &euro;</span>`;
     delivery.innerHTML = `<span>0 &euro;</span>`;
     totalPrice.innerHTML = `<span>0 &euro;</span>`;
-    btn.innerHTML = `<span>Fülle dein Warenkorb</span>`;
-    btn.setAttribute('disabled', true); /*fixme : anderen namen*/
+    btnOrder.innerHTML = `<span>Fülle dein Warenkorb</span>`;
+    btnOrder.setAttribute('disabled', true); /*fixme : anderen namen*/
 }
 
 /**
@@ -82,7 +82,7 @@ function changePrice(price, deliveryCosts, gesamtkosten) {
     subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`;
     delivery.innerHTML = `<span>${deliveryCosts.toFixed(2)} &euro;</span>`;
     totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
-    btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
+    btnOrder.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
 }
 
 /**

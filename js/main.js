@@ -1,16 +1,17 @@
 /**
  * In der Datei befinden sich die Funktionen für die Programm Logik
+ * Onload - Funktionen die ausgeführt werden sobald die Seite geladen ist
+ * Event - Funktion die auf ein Mausklick reagieren
  */
 
-const btn = document.getElementById('orderButton');
-
+const btnOrder = document.getElementById('orderButton'); /* der Bestell Button */
 const minPrice = 25; /* Mindestbestellwert */
-const deliveryCosts = 7; /*Lieferkosten*/
-
+const deliveryCosts = 7; /* Lieferkosten */
 
 /**
- * ONLOAD - Funktion wird ausgeführt sobald die Seite geladen hat
+ * Onload - Die Funktion wird ausgeführt sobald die Seite geladen ist
  * Die Funktion Implementiert die Navigations und Speisekarte inhalte in die index.html Datei
+ * Funktion wird ausgeführt sobald die Seite geladen hat.
  */
 function addElementsToHTML() {
 
@@ -27,13 +28,13 @@ function addElementsToHTML() {
 }
 
 /**
- * ONLOAD - Funktion wird ausgeführt sobald die Seite geladen hat.
+ * Onload - Die Funktion wird ausgefürt sobald die Seite geladen ist
  * Überprüft ob es daten aus dem localStorage zum laden gibt
-*/
+ */
 function checkLocalStorage() {
     const shoppingCart = localStorage.getItem('shoppingCart');
     const meals = JSON.parse(localStorage.getItem('shoppingCart')).meals.length;
-    
+
     if (!!shoppingCart && meals > 0) {
         document.getElementById('shoppingCartIsEmpty').style.display = 'none' /*fixme: kürzer machen*/
         pushToHTML();
@@ -45,21 +46,21 @@ function checkLocalStorage() {
 }
 
 /**
- * EVENT - Wird ausgeführt sobald der Benutzer auf ein Produkt zum Warenkorb zufügt
+ * Event - Die Funktion wird ausgefürt sobald der Benutzer ein Produkt zum Warenkorb zufügt
  * Button wurde geklickt
  * @param key
  * @param index
  */
 function clickButton(key, index) {
-    pushProductToShoppingCart(key, index) /* Step 2: Produkte werden zum Array in JSON gepusht in data.js */
-    updateLocalStorage(); /* Step 3: Produkte aus dem Array werden in localStorage gespeichert */
-    shoppingCartClear() /* Step 4: HTML inhalt wird aus dem Warenkorb gelöscht */
-    checkLocalStorage() /* Step 5: localStorage wird zum HTML inhalt gepusht */
+    pushProductToShoppingCart(key, index) /* Produkte werden zum Array in JSON gepusht in data.js */
+    updateLocalStorage(); /* Produkte aus dem Array werden in localStorage gespeichert */
+    shoppingCartClear() /* HTML inhalt wird aus dem Warenkorb gelöscht */
+    checkLocalStorage() /* localStorage wird zum HTML inhalt gepusht */
     priceUpdate(deliveryCosts)
 }
 
 /**
- * EVENT - Wird ausgeführt sobald der Benutzer ein Produkt aus dem Warenkorb löscht
+ * Event - Die Funktion wird ausgeführt sobald der Benutzer ein Produkt aus dem Warenkorb löscht
  * Löscht daten aus dem Warenkorb Array
  * @param {int} index
  */
@@ -71,8 +72,8 @@ function deleteItem(index) {
 }
 
 /**
- *  EVENT - Wird ausgeführt sobald der Benutzer aud den Bestell Button gedrückt hat
- *  die Funktion informiert den Benutzer das seine Bestellung aufgenommen wurde
+ * Event - Die Funktion wird ausgeführt sobald der Benutzer auf denBetsell Button gedrückt hat
+ * Funktion informiert den Benutzer über die erfolgreiche Bestellung
  */
 function btnAction() {
     window.alert('Deine Bestellung wurde Aufgenommen')
@@ -146,9 +147,9 @@ function priceUpdate(deliveryCosts) {
  */
 function checkButton(gesamtkosten, min) {
      if(gesamtkosten < min) {
-         btn.setAttribute('disabled', true)
+         btnOrder.setAttribute('disabled', true)
      } else {
-         btn.removeAttribute('disabled')
+         btnOrder.removeAttribute('disabled')
      }
  }
 
