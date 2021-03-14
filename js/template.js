@@ -62,13 +62,13 @@ function addMealField(mealName, mealDescription, mealPrice, key, index) {
 /**
  * ie Funktion wird ausgeführt sobald localStorage leer ist beim Neuladen der seite
  */
-function shoppingCartIsEmpty() {
+function shoppingCartIsEmpty(minPrice) {
     shoppingCartEmpty.style.display = 'flex';
     subtotal.innerHTML = `<span>0 &euro;</span>`;
     delivery.innerHTML = `<span>0 &euro;</span>`;
     totalPrice.innerHTML = `<span>0 &euro;</span>`;
-    btn.innerHTML = `<span>Fülle dein Warenkorb</span>`;
-    btn.setAttribute('disabled', true); /*fixme : anderen namen*/
+    btnOrder.innerHTML = `<span>Mindestbestellwert ${minPrice} &euro;</span>`;
+    btnOrder.setAttribute('disabled', true);
 }
 
 /**
@@ -79,9 +79,8 @@ function shoppingCartIsEmpty() {
  */
 function changePrice(price, deliveryCosts, gesamtkosten) {
     subtotal.innerHTML = `<span>${price.toFixed(2)} &euro;</span>`;
-    delivery.innerHTML = `<span>${deliveryCosts} &euro;</span>`;
+    delivery.innerHTML = `<span>${deliveryCosts.toFixed(2)} &euro;</span>`;
     totalPrice.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
-    btn.innerHTML = `<span>${gesamtkosten.toFixed(2)} &euro;</span>`;
 }
 
 /**
@@ -104,4 +103,22 @@ function pushProduct(data, dataKey) {
             </div>
         </div>
     `;
+}
+
+/**
+ *
+ * @param {int} totalPrice
+ * @param {int} min
+ */
+function updateButtonDisable(totalPrice, min) {
+    btnOrder.innerHTML = `<span>Noch ${ min - totalPrice.toFixed(2)} &euro; um zu bestellen</span>`;
+}
+
+/**
+ *
+ * @param {int} totalPrice
+ */
+function updateButtonAktive(totalPrice) {
+    btnOrder.innerHTML = `<span>${totalPrice.toFixed(2)} &euro;</span>`;
+
 }
