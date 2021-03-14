@@ -23,17 +23,17 @@ const data = {
         meals: [
             {
                 name: 'Zigeuner Schnitzel',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 12.50
             },
             {
                 name: 'Wiener Schnitzel',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 11.00
             },
             {
                 name: 'Bayerischer Schnitzel',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 14.50
             }
         ]
@@ -45,17 +45,17 @@ const data = {
         meals: [
             {
                 name: 'Pizza Margarita',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 6.50
             },
             {
                 name: 'Pizza Salami',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 7.50
             },
             {
                 name: 'Pizza Hawai',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 8.00
             }
         ],
@@ -67,17 +67,17 @@ const data = {
         meals: [
             {
                 name: 'Cheese Burger',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 6.50
             },
             {
                 name: 'Hamburger',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 5.50
             },
             {
                 name: 'Crispy Chicken Burger',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 8.00
             }
         ]
@@ -88,18 +88,18 @@ const data = {
         heading: 'Salate',
         meals: [
             {
-                name: 'Griechisch Salat',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                name: 'Griechischer Salat',
+                description: 'Beschreibungstext',
                 price: 7.50
             },
             {
                 name: 'Italienischer Salat',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 8.00
             },
             {
                 name: 'Putenstreifen Salat',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 9.50
             }
         ]
@@ -111,17 +111,17 @@ const data = {
         meals: [
             {
                 name: 'Hühner Suppe',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 5.50
             },
             {
                 name: 'Kürbis Suppe',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 10.50
             },
             {
                 name: 'Pilzen Suppe',
-                description: 'In der zukunft kommt hier ein Beschreibung Text',
+                description: 'Beschreibungstext',
                 price: 7.00
             }
         ]
@@ -133,17 +133,17 @@ const data = {
         meals: [
             {
                 name: 'Coca Cola',
-                description: 'Eine Kalte 0,3L Dose Coca Cola',
+                description: 'Eine 0,3L Dose Coca Cola',
                 price: 2.50
             },
             {
                 name: 'Fanta',
-                description: 'Eine Kalte 0,3L Dose Fanta',
+                description: 'Eine 0,3L Dose Fanta',
                 price: 2.50
             },
             {
                 name: 'Sprite',
-                description: 'Eine Kalte 0,3L Dose Sprite',
+                description: 'Eine 0,3L Dose Sprite',
                 price: 2.50
             }
         ]
